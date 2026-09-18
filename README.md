@@ -87,7 +87,7 @@ The backend provides secure REST APIs, business logic, authentication, authoriza
 * Spring Security
 * JWT Authentication
 * Spring Data MongoDB
-* MongoDB Atlas / Local MongoDB
+* MongoDB Atlas
 * Maven
 * Lombok
 
