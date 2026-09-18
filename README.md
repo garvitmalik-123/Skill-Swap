@@ -4,21 +4,37 @@
 
 ---
 
-## 👨‍💻 Author
+## ✨ Overview
 
-**Garvit Malik**
+Imagine a platform where **everyone is a teacher and a student at the same time** — where a developer who wants to learn UI/UX can trade lessons with a designer who wants to learn Java, no money required. That's **SkillSwap**.
 
-**Shivika**
+Most learning platforms force people into rigid roles: you're either an instructor selling courses or a student buying them. SkillSwap breaks that mold with a **single, unified user account** that can create courses, enroll in others' courses, and directly *exchange skills* with fellow members — powered by an in-app currency called **SkillPoints**.
 
----
+Whether someone wants to:
 
-## 📌 About the Project
+* 🎓 **Learn** a new skill through structured courses (free, SkillPoint-based, or paid),
+* 🧑‍🏫 **Teach** what they know and earn rewards for it,
+* 🔁 **Swap skills 1-on-1** with a perfect match ("I teach you Java, you teach me UI/UX"),
+* 📅 **Book live sessions** with other members,
+* 🏆 **Earn certificates, reputation, and SkillPoints** along the way —
 
-**SkillSwap** is a full-stack peer-to-peer learning platform.
+SkillSwap brings it all into one connected ecosystem.
 
-Unlike traditional learning platforms, a single normal user account can act as both a **learner and a teacher**.
+### Why it stands out
 
-Users can:
+| 💡 | What makes SkillSwap different |
+|---|---|
+| 🔄 **Two-way learning** | One account, dual identity — every user can teach *and* learn, no separate roles needed |
+| 🤝 **Real skill matching** | Rule-based matching engine pairs people whose "can teach" and "want to learn" skills complement each other |
+| 💎 **SkillPoints economy** | An internal, auditable reward currency that lets users learn without always paying cash |
+| 📚 **Full course lifecycle** | Draft → Publish → Archive, with rich lessons, progress tracking, and certificates |
+| 🔐 **Production-grade backend** | Secure JWT auth, role-based access, atomic wallet transactions, and idempotent payments |
+| 🛡️ **Trust & safety built-in** | Reviews, ratings, reporting, and full admin moderation tools from day one |
+| 📈 **Built to scale** | Clean Controller → Service → Repository architecture on Spring Boot + MongoDB, ready for a modern React frontend |
+
+In short: **SkillSwap isn't just another course marketplace — it's a community where knowledge itself is the currency.** Dive into the sections below to explore the architecture, roadmap, and everything that powers it.
+
+### What Users Can Do
 
 * Create and manage their profiles
 * Add skills they can teach
@@ -35,6 +51,14 @@ Users can:
 * Build their reputation
 
 The backend provides secure REST APIs, business logic, authentication, authorization, MongoDB persistence, course management, SkillPoints, wallet records, payments, skill exchange, reviews, notifications, and Admin operations.
+
+---
+
+## 👨‍💻 Author
+
+**Garvit Malik**
+
+**Shivika**
 
 ---
 
@@ -65,7 +89,6 @@ The backend provides secure REST APIs, business logic, authentication, authoriza
 * Spring Data MongoDB
 * MongoDB Atlas / Local MongoDB
 * Maven
-* Bean Validation
 * Lombok
 
 ## Frontend
