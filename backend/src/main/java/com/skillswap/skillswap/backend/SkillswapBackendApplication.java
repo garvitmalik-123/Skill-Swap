@@ -1,4 +1,4 @@
-package com.skillswap.skillswap_backend;
+package com.skillswap.skillswap.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
