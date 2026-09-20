@@ -173,11 +173,11 @@ main
  │
  └── develop
       │
-      ├── feature/project-setup
-      ├── feature/auth
-      ├── feature/profile-skills
+      ├── feature/project-setup      ✅ merged
+      ├── feature/auth-service       ✅ merged
+      ├── feature/profile-skills     ✅ merged
       ├── feature/categories
-      ├── feature/courses
+      ├── feature/courses            🔧 in progress
       ├── feature/enrollment
       ├── feature/skillpoints
       ├── feature/wallet-payment
@@ -204,21 +204,23 @@ main
 
 The project follows a **backend-first development strategy**. The backend development order is based on the SkillSwap Backend PRD.
 
+> **Current status:** Phases 1–5 complete and merged into `main` (MVP checkpoint: project setup, JWT authentication, user profile & skills). Phase 6 (Course Management) is in progress on `feature/courses`.
+
 ---
 
-## Phase 1 — Project Initialization ⚙️
+## Phase 1 — Project Initialization ⚙️ ✅
 
 ### Tasks
 
-* [ ] Create GitHub repository
-* [ ] Add teammate as collaborator
-* [ ] Create `develop` branch
-* [ ] Create Spring Boot project
-* [ ] Configure Maven
-* [ ] Add dependencies
-* [ ] Create package structure
-* [ ] Configure environment variables
-* [ ] Create `.gitignore`
+* [x] Create GitHub repository
+* [x] Add teammate as collaborator
+* [x] Create `develop` branch
+* [x] Create Spring Boot project
+* [x] Configure Maven
+* [x] Add dependencies
+* [x] Create package structure
+* [x] Configure environment variables
+* [x] Create `.gitignore`
 
 ### Branch
 
@@ -228,16 +230,16 @@ feature/project-setup
 
 ---
 
-# Phase 2 — MongoDB Configuration 🗄️
+# Phase 2 — MongoDB Configuration 🗄️ ✅
 
 ### Tasks
 
-* [ ] Configure MongoDB
-* [ ] Create database
-* [ ] Configure MongoDB connection
-* [ ] Configure MongoDB repositories
-* [ ] Add indexes where required
-* [ ] Test database connection
+* [x] Configure MongoDB
+* [x] Create database
+* [x] Configure MongoDB connection
+* [x] Configure MongoDB repositories
+* [x] Add indexes where required
+* [x] Test database connection
 
 ### Branch
 
@@ -249,18 +251,18 @@ MongoDB is the primary application database, with indexes planned for frequently
 
 ---
 
-# Phase 3 — Common Backend Infrastructure 🧩
+# Phase 3 — Common Backend Infrastructure 🧩 ✅
 
 ### Tasks
 
-* [ ] DTO structure
-* [ ] Common API response
-* [ ] Error response structure
-* [ ] Global exception handler
-* [ ] Validation
-* [ ] Custom exceptions
-* [ ] Common configuration
-* [ ] Logging
+* [x] DTO structure
+* [x] Common API response
+* [x] Error response structure
+* [x] Global exception handler
+* [x] Validation
+* [x] Custom exceptions
+* [x] Common configuration
+* [x] Logging
 
 ### Branch
 
@@ -270,21 +272,21 @@ feature/project-setup
 
 ---
 
-# Phase 4 — Authentication & Authorization 🔐
+# Phase 4 — Authentication & Authorization 🔐 ✅
 
 ### Features
 
-* [ ] User registration
-* [ ] User login
-* [ ] BCrypt password hashing
-* [ ] JWT access token
-* [ ] JWT validation
-* [ ] Spring Security configuration
-* [ ] Role-based authorization
-* [ ] Logout strategy
-* [ ] Forgot password
-* [ ] Reset password
-* [ ] `/me` endpoint
+* [x] User registration
+* [x] User login
+* [x] BCrypt password hashing
+* [x] JWT access token
+* [x] JWT validation
+* [x] Spring Security configuration
+* [x] Role-based authorization
+* [x] Logout strategy
+* [x] Forgot password
+* [x] Reset password
+* [x] `/me` endpoint
 
 ### Roles
 
@@ -298,7 +300,7 @@ A single `USER` account can both create courses and enroll in courses; a separat
 ### Branch
 
 ```text
-feature/auth
+feature/auth-service
 ```
 
 ### APIs
@@ -313,28 +315,28 @@ GET  /api/auth/me
 
 ---
 
-# Phase 5 — User Profile & Skills 👤
+# Phase 5 — User Profile & Skills 👤 ✅
 
 ## User Profile
 
-* [ ] User profile
-* [ ] Update profile
-* [ ] Profile image reference
-* [ ] Bio
-* [ ] Location
-* [ ] Experience level
-* [ ] Account status
-* [ ] Timestamps
+* [x] User profile
+* [x] Update profile
+* [x] Profile image reference
+* [x] Bio
+* [x] Location
+* [x] Experience level
+* [x] Account status
+* [x] Timestamps
 
 ## Skill Management
 
-* [ ] Create/manage skills
-* [ ] Add teaching skills
-* [ ] Add learning interests
-* [ ] Remove skills
-* [ ] Prevent duplicate relationships
-* [ ] Skill categories
-* [ ] Skill levels
+* [x] Create/manage skills
+* [x] Add teaching skills
+* [x] Add learning interests
+* [x] Remove skills
+* [x] Prevent duplicate relationships
+* [x] Skill categories
+* [x] Skill levels
 
 The PRD defines user relationships with skills using `CAN_TEACH` and `WANTS_TO_LEARN`.
 
@@ -359,7 +361,7 @@ GET    /api/categories
 
 ---
 
-# Phase 6 — Course Management 📚
+# Phase 6 — Course Management 📚 🔧 In Progress
 
 Users can create courses that other users can learn from.
 
@@ -910,7 +912,7 @@ feature/testing
 
 ---
 
-# Phase 22 — Swagger / OpenAPI 📚
+# Phase 22 — Swagger / OpenAPI 📚 ✅
 
 Document all REST APIs.
 
@@ -923,7 +925,7 @@ http://localhost:8080/swagger-ui/index.html
 ### API Groups
 
 ```text
-Authentication
+Authentication      ✅
 Users
 Skills
 Categories
@@ -1054,19 +1056,23 @@ backend/
         ├── java/
         │   └── com/
         │       └── skillswap/
-        │           ├── config/
-        │           ├── controller/
-        │           ├── dto/
-        │           ├── entity/
-        │           ├── repository/
-        │           ├── service/
-        │           ├── security/
-        │           ├── exception/
-        │           └── SkillSwapApplication.java
+        │           └── skillswap/
+        │               └── backend/
+        │                   ├── config/
+        │                   ├── controller/
+        │                   ├── dto/
+        │                   │   ├── request/
+        │                   │   └── response/
+        │                   ├── entity/
+        │                   ├── repository/
+        │                   ├── service/
+        │                   │   └── impl/
+        │                   ├── security/
+        │                   ├── exception/
+        │                   └── SkillswapBackendApplication.java
         │
         └── resources/
-            ├── application.properties
-            └── application-dev.properties
+            └── application.properties
 ```
 
 ---
@@ -1194,15 +1200,15 @@ docs: update API documentation
 
 | Milestone            | Status |
 | -------------------- | ------ |
-| GitHub Setup         | ⬜      |
-| Spring Boot Setup    | ⬜      |
-| MongoDB Setup        | ⬜      |
-| Common Configuration | ⬜      |
-| Authentication       | ⬜      |
-| User Profile         | ⬜      |
-| Skill Management     | ⬜      |
+| GitHub Setup         | ✅      |
+| Spring Boot Setup    | ✅      |
+| MongoDB Setup        | ✅      |
+| Common Configuration | ✅      |
+| Authentication       | ✅      |
+| User Profile         | ✅      |
+| Skill Management     | ✅      |
 | Categories           | ⬜      |
-| Course Management    | ⬜      |
+| Course Management    | 🔧      |
 | Course Content       | ⬜      |
 | Course Discovery     | ⬜      |
 | Enrollment           | ⬜      |
@@ -1220,7 +1226,7 @@ docs: update API documentation
 | Admin                | ⬜      |
 | Moderation           | ⬜      |
 | Testing              | ⬜      |
-| Swagger              | ⬜      |
+| Swagger              | ✅      |
 | Frontend             | ⬜      |
 | Integration          | ⬜      |
 | Docker               | ⬜      |
