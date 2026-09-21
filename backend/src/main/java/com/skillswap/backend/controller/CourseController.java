@@ -14,6 +14,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import com.skillswap.backend.dto.request.CourseSearchRequest;
+import com.skillswap.backend.entity.Course;
 
 @RestController
 @RequestMapping("/api/courses")
@@ -35,6 +37,40 @@ public class CourseController {
     public ResponseEntity<ApiResponse<Page<CourseResponse>>> getAllCourses(Pageable pageable) {
         Page<CourseResponse> courses = courseService.getAllPublishedCourses(pageable);
         return ResponseEntity.ok(ApiResponse.success(courses));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<ApiResponse<Page<CourseResponse>>> searchCourses(
+            @RequestParam(required = false) String keyword,
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String skill,
+            @RequestParam(required = false) String creatorId,
+            @RequestParam(required = false) Course.CourseType type,
+            @RequestParam(required = false) Course.Difficulty difficulty,
+            @RequestParam(required = false) String language,
+            @RequestParam(required = false) Double minPrice,
+            @RequestParam(required = false) Double maxPrice,
+            @RequestParam(required = false) Double minRating,
+            @RequestParam(required = false) Integer minDuration,
+            @RequestParam(required = false) Integer maxDuration,
+            Pageable pageable) {
+
+        CourseSearchRequest filters = new CourseSearchRequest();
+        filters.setKeyword(keyword);
+        filters.setCategory(category);
+        filters.setSkill(skill);
+        filters.setCreatorId(creatorId);
+        filters.setType(type);
+        filters.setDifficulty(difficulty);
+        filters.setLanguage(language);
+        filters.setMinPrice(minPrice);
+        filters.setMaxPrice(maxPrice);
+        filters.setMinRating(minRating);
+        filters.setMinDuration(minDuration);
+        filters.setMaxDuration(maxDuration);
+
+        Page<CourseResponse> results = courseService.searchCourses(filters, pageable);
+        return ResponseEntity.ok(ApiResponse.success(results));
     }
 
     @GetMapping("/{id}")

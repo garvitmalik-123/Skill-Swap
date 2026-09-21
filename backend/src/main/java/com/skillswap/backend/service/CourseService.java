@@ -1,5 +1,6 @@
 package com.skillswap.backend.service;
 
+import com.skillswap.backend.dto.request.CourseSearchRequest;
 import com.skillswap.backend.dto.request.CreateCourseRequest;
 import com.skillswap.backend.dto.request.UpdateCourseRequest;
 import com.skillswap.backend.dto.response.CourseResponse;
@@ -13,6 +14,8 @@ public interface CourseService {
     CourseResponse getCourseById(String courseId);
 
     Page<CourseResponse> getAllPublishedCourses(Pageable pageable);
+
+    Page<CourseResponse> searchCourses(CourseSearchRequest filters, Pageable pageable);
 
     CourseResponse updateCourse(String courseId, String requesterId, UpdateCourseRequest request);
 
