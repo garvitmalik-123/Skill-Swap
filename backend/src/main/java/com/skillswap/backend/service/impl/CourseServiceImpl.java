@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import com.skillswap.backend.dto.request.CourseSearchRequest;
 
 @Service
 @RequiredArgsConstructor
@@ -50,6 +51,12 @@ public class CourseServiceImpl implements CourseService {
     public CourseResponse getCourseById(String courseId) {
         Course course = findCourseOrThrow(courseId);
         return toResponse(course);
+    }
+
+    @Override
+    public Page<CourseResponse> searchCourses(CourseSearchRequest filters, Pageable pageable) {
+        return courseRepository.search(filters, pageable)
+                .map(this::toResponse);
     }
 
     @Override
