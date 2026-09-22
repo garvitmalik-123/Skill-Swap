@@ -150,9 +150,9 @@ main
  │
  └── develop
       │
-      ├── feature/project-setup
-      ├── feature/auth
-      ├── feature/profile-skills
+      ├── feature/project-setup      ✅ merged
+      ├── feature/auth-service       ✅ merged
+      ├── feature/profile-skills     ✅ merged
       ├── feature/categories
       ├── feature/courses
       ├── feature/course-content
@@ -182,6 +182,8 @@ main
 # 🗺️ Development Roadmap
 
 The project follows a **backend-first development strategy**. The backend development order is based on the SkillSwap Backend PRD.
+
+> **Current status:** Phases 1–10 complete and merged into `main` (MVP checkpoint: project setup, JWT authentication, user profile & skills, categories, course management, course content, course discovery, enrollment, learning progress, certificates). Phase 11 (SkillPoints) is next.
 
 ---
 
@@ -277,7 +279,7 @@ A single `USER` account can both create courses and enroll in courses; a separat
 ### Branch
 
 ```text
-feature/auth
+feature/auth-service
 ```
 
 ### APIs
@@ -469,24 +471,24 @@ GET /api/courses/search
 
 ---
 
-# Phase 9 — Enrollment & Learning Progress 🎓
+# Phase 9 — Enrollment & Learning Progress 🎓 ✅
 
 ## Enrollment
 
-* [ ] Free course enrollment
-* [ ] SkillPoint course enrollment
-* [ ] Paid course enrollment
-* [ ] Prevent duplicate enrollment
-* [ ] Enrollment status
-* [ ] Enrollment timestamps
+* [x] Free course enrollment
+* [x] SkillPoint course enrollment
+* [x] Paid course enrollment
+* [x] Prevent duplicate enrollment
+* [x] Enrollment status
+* [x] Enrollment timestamps
 
 ## Learning Progress
 
-* [ ] Track completed lessons
-* [ ] Calculate progress
-* [ ] Detect course completion
-* [ ] Track quiz/assignment results
-* [ ] Certificate eligibility
+* [x] Track completed lessons
+* [x] Calculate progress
+* [x] Detect course completion
+* [x] Track quiz/assignment results
+* [x] Certificate eligibility
 
 ### Branch
 
@@ -498,16 +500,16 @@ For SkillPoint and paid courses, the backend must verify the required transactio
 
 ---
 
-# Phase 10 — Certificates 🏆
+# Phase 10 — Certificates 🏆 ✅
 
 ### Features
 
-* [ ] Generate certificate ID
-* [ ] Store certificate metadata
-* [ ] Associate certificate with user/course
-* [ ] Store completion date
-* [ ] Optional PDF certificate
-* [ ] Optional certificate verification
+* [x] Generate certificate ID
+* [x] Store certificate metadata
+* [x] Associate certificate with user/course
+* [x] Store completion date
+* [x] Optional PDF certificate
+* [x] Optional certificate verification
 
 ### Branch
 
@@ -906,7 +908,7 @@ feature/testing
 
 ---
 
-# Phase 22 — Swagger / OpenAPI 📚
+# Phase 22 — Swagger / OpenAPI 📚 ✅
 
 Document all REST APIs.
 
@@ -924,8 +926,8 @@ Users ✅
 Skills ✅
 Categories ✅
 Courses ✅
-Enrollment
-Progress
+Enrollment ✅
+Progress ✅
 SkillPoints
 Wallet
 Orders
@@ -1082,10 +1084,10 @@ categories
 
 courses ✅
 course_lessons ✅
-course_enrollments
-course_progress
+course_enrollments ✅
+course_progress ✅
 
-certificates
+certificates ✅
 reviews
 
 skill_exchanges
@@ -1191,39 +1193,39 @@ docs: update API documentation
 
 # 📊 Project Milestones
 
-| Milestone            | Status |
-| -------------------- | ------ |
-| GitHub Setup         | ✅      |
-| Spring Boot Setup    | ✅      |
-| MongoDB Setup        | ✅      |
-| Common Configuration | ✅      |
-| Authentication       | ✅      |
-| User Profile         | ✅      |
-| Skill Management     | ✅      |
-| Categories           | ✅      |
-| Course Management    | ✅      |
-| Course Content       | ✅      |
-| Course Discovery     | ✅      |
-| Enrollment           | ⬜      |
-| Learning Progress    | ⬜      |
-| Certificates         | ⬜      |
-| SkillPoints          | ⬜      |
-| Wallet               | ⬜      |
-| Orders & Payments    | ⬜      |
-| Reviews              | ⬜      |
-| Skill Matching       | ⬜      |
-| Skill Exchange       | ⬜      |
-| Skill Sessions       | ⬜      |
-| Wishlist             | ⬜      |
-| Notifications        | ⬜      |
-| Admin                | ⬜      |
-| Moderation           | ⬜      |
-| Testing              | ⬜      |
-| Swagger              | ✅      |
-| Frontend             | ⬜      |
-| Integration          | ⬜      |
-| Docker               | ⬜      |
-| Deployment           | ⬜      |
+| Milestone             | Status |
+| ---------------------- | ------ |
+| GitHub Setup           | ✅      |
+| Spring Boot Setup      | ✅      |
+| MongoDB Setup          | ✅      |
+| Common Configuration   | ✅      |
+| Authentication         | ✅      |
+| User Profile           | ✅      |
+| Skill Management       | ✅      |
+| Categories             | ✅      |
+| Course Management      | ✅      |
+| Course Content         | ✅      |
+| Course Discovery       | ✅      |
+| Enrollment             | ✅      |
+| Learning Progress      | ✅      |
+| Certificates           | ✅      |
+| SkillPoints            | ⬜      |
+| Wallet                 | ⬜      |
+| Orders & Payments      | ⬜      |
+| Reviews                | ⬜      |
+| Skill Matching         | ⬜      |
+| Skill Exchange         | ⬜      |
+| Skill Sessions         | ⬜      |
+| Wishlist               | ⬜      |
+| Notifications          | ⬜      |
+| Admin                  | ⬜      |
+| Moderation             | ⬜      |
+| Testing                | ⬜      |
+| Swagger                | ✅      |
+| Frontend               | ⬜      |
+| Integration            | ⬜      |
+| Docker                 | ⬜      |
+| Deployment             | ⬜      |
 
 ---
 
@@ -1318,8 +1320,9 @@ The first complete backend milestone will include:
 ✓ Course CRUD
 ✓ FREE / SKILLPOINT / PAID Courses
 ✓ Course Search & Filtering
-□ Enrollment
-□ Learning Progress
+✓ Enrollment
+✓ Learning Progress
+✓ Certificates
 □ SkillPoints
 □ Wallet & Earnings
 □ Reviews & Ratings
