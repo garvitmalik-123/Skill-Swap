@@ -4,37 +4,21 @@
 
 ---
 
-## ✨ Overview
+## 👨‍💻 Author
 
-Imagine a platform where **everyone is a teacher and a student at the same time** — where a developer who wants to learn UI/UX can trade lessons with a designer who wants to learn Java, no money required. That's **SkillSwap**.
+**Garvit Malik**
 
-Most learning platforms force people into rigid roles: you're either an instructor selling courses or a student buying them. SkillSwap breaks that mold with a **single, unified user account** that can create courses, enroll in others' courses, and directly *exchange skills* with fellow members — powered by an in-app currency called **SkillPoints**.
+**Shivika**
 
-Whether someone wants to:
+---
 
-* 🎓 **Learn** a new skill through structured courses (free, SkillPoint-based, or paid),
-* 🧑‍🏫 **Teach** what they know and earn rewards for it,
-* 🔁 **Swap skills 1-on-1** with a perfect match ("I teach you Java, you teach me UI/UX"),
-* 📅 **Book live sessions** with other members,
-* 🏆 **Earn certificates, reputation, and SkillPoints** along the way —
+## 📌 About the Project
 
-SkillSwap brings it all into one connected ecosystem.
+**SkillSwap** is a full-stack peer-to-peer learning platform.
 
-### Why it stands out
+Unlike traditional learning platforms, a single normal user account can act as both a **learner and a teacher**.
 
-| 💡 | What makes SkillSwap different |
-|---|---|
-| 🔄 **Two-way learning** | One account, dual identity — every user can teach *and* learn, no separate roles needed |
-| 🤝 **Real skill matching** | Rule-based matching engine pairs people whose "can teach" and "want to learn" skills complement each other |
-| 💎 **SkillPoints economy** | An internal, auditable reward currency that lets users learn without always paying cash |
-| 📚 **Full course lifecycle** | Draft → Publish → Archive, with rich lessons, progress tracking, and certificates |
-| 🔐 **Production-grade backend** | Secure JWT auth, role-based access, atomic wallet transactions, and idempotent payments |
-| 🛡️ **Trust & safety built-in** | Reviews, ratings, reporting, and full admin moderation tools from day one |
-| 📈 **Built to scale** | Clean Controller → Service → Repository architecture on Spring Boot + MongoDB, ready for a modern React frontend |
-
-In short: **SkillSwap isn't just another course marketplace — it's a community where knowledge itself is the currency.** Dive into the sections below to explore the architecture, roadmap, and everything that powers it.
-
-### What Users Can Do
+Users can:
 
 * Create and manage their profiles
 * Add skills they can teach
@@ -51,14 +35,6 @@ In short: **SkillSwap isn't just another course marketplace — it's a community
 * Build their reputation
 
 The backend provides secure REST APIs, business logic, authentication, authorization, MongoDB persistence, course management, SkillPoints, wallet records, payments, skill exchange, reviews, notifications, and Admin operations.
-
----
-
-## 👨‍💻 Author
-
-**Garvit Malik**
-
-**Shivika**
 
 ---
 
@@ -87,8 +63,9 @@ The backend provides secure REST APIs, business logic, authentication, authoriza
 * Spring Security
 * JWT Authentication
 * Spring Data MongoDB
-* MongoDB Atlas
+* MongoDB Atlas / Local MongoDB
 * Maven
+* Bean Validation
 * Lombok
 
 ## Frontend
@@ -177,7 +154,9 @@ main
       ├── feature/auth-service       ✅ merged
       ├── feature/profile-skills     ✅ merged
       ├── feature/categories
-      ├── feature/courses            🔧 in progress
+      ├── feature/courses
+      ├── feature/course-content
+      ├── feature/course-discovery
       ├── feature/enrollment
       ├── feature/skillpoints
       ├── feature/wallet-payment
@@ -204,7 +183,7 @@ main
 
 The project follows a **backend-first development strategy**. The backend development order is based on the SkillSwap Backend PRD.
 
-> **Current status:** Phases 1–5 complete and merged into `main` (MVP checkpoint: project setup, JWT authentication, user profile & skills). Phase 6 (Course Management) is in progress on `feature/courses`.
+> **Current status:** Phases 1–10 complete and merged into `main` (MVP checkpoint: project setup, JWT authentication, user profile & skills, categories, course management, course content, course discovery, enrollment, learning progress, certificates). Phase 11 (SkillPoints) is next.
 
 ---
 
@@ -361,7 +340,7 @@ GET    /api/categories
 
 ---
 
-# Phase 6 — Course Management 📚 🔧 In Progress
+# Phase 6 — Course Management 📚 ✅
 
 Users can create courses that other users can learn from.
 
@@ -375,21 +354,21 @@ PAID
 
 ### Features
 
-* [ ] Create course
-* [ ] Update course
-* [ ] Delete course
-* [ ] Course description
-* [ ] Category
-* [ ] Skills
-* [ ] Difficulty
-* [ ] Language
-* [ ] Duration
-* [ ] Learning objectives
-* [ ] Prerequisites
-* [ ] Thumbnail reference
-* [ ] Course status
-* [ ] Publish course
-* [ ] Archive course
+* [x] Create course
+* [x] Update course
+* [x] Delete course
+* [x] Course description
+* [x] Category
+* [x] Skills
+* [x] Difficulty
+* [x] Language
+* [x] Duration
+* [x] Learning objectives
+* [x] Prerequisites
+* [x] Thumbnail reference
+* [x] Course status
+* [x] Publish course
+* [x] Archive course
 
 ### Course Lifecycle
 
@@ -424,18 +403,18 @@ POST /api/courses/{id}/archive
 
 ---
 
-# Phase 7 — Course Lessons & Resources 📖
+# Phase 7 — Course Lessons & Resources 📖 ✅
 
 ### Features
 
-* [ ] Create lessons
-* [ ] Update lessons
-* [ ] Delete lessons
-* [ ] Lesson ordering
-* [ ] Lesson content
-* [ ] Video reference
-* [ ] PDF/resource reference
-* [ ] Published status
+* [x] Create lessons
+* [x] Update lessons
+* [x] Delete lessons
+* [x] Lesson ordering
+* [x] Lesson content
+* [x] Video reference
+* [x] PDF/resource reference
+* [x] Published status
 * [ ] Optional quizzes/assignments
 
 Large files should use object storage such as MinIO or cloud storage instead of being stored directly inside MongoDB.
@@ -446,24 +425,35 @@ Large files should use object storage such as MinIO or cloud storage instead of 
 feature/course-content
 ```
 
+### APIs
+
+```text
+POST   /api/courses/{courseId}/lessons
+GET    /api/courses/{courseId}/lessons
+PUT    /api/courses/{courseId}/lessons/{lessonId}
+DELETE /api/courses/{courseId}/lessons/{lessonId}
+PUT    /api/courses/{courseId}/lessons/{lessonId}/reorder
+POST   /api/courses/{courseId}/lessons/{lessonId}/publish
+```
+
 ---
 
-# Phase 8 — Course Discovery 🔎
+# Phase 8 — Course Discovery 🔎 ✅
 
 ### Features
 
-* [ ] Search courses
-* [ ] Search by skill
-* [ ] Search by category
-* [ ] Search by creator
-* [ ] Filter by course type
-* [ ] Filter by price
-* [ ] Filter by rating
-* [ ] Filter by difficulty
-* [ ] Filter by language
-* [ ] Filter by duration
-* [ ] Sorting
-* [ ] Pagination
+* [x] Search courses
+* [x] Search by skill
+* [x] Search by category
+* [x] Search by creator
+* [x] Filter by course type
+* [x] Filter by price
+* [x] Filter by rating
+* [x] Filter by difficulty
+* [x] Filter by language
+* [x] Filter by duration
+* [x] Sorting
+* [x] Pagination
 
 ### Branch
 
@@ -473,26 +463,32 @@ feature/course-discovery
 
 The backend specification explicitly requires search, filtering, sorting, and pagination for course discovery.
 
+### APIs
+
+```text
+GET /api/courses/search
+```
+
 ---
 
-# Phase 9 — Enrollment & Learning Progress 🎓
+# Phase 9 — Enrollment & Learning Progress 🎓 ✅
 
 ## Enrollment
 
-* [ ] Free course enrollment
-* [ ] SkillPoint course enrollment
-* [ ] Paid course enrollment
-* [ ] Prevent duplicate enrollment
-* [ ] Enrollment status
-* [ ] Enrollment timestamps
+* [x] Free course enrollment
+* [x] SkillPoint course enrollment
+* [x] Paid course enrollment
+* [x] Prevent duplicate enrollment
+* [x] Enrollment status
+* [x] Enrollment timestamps
 
 ## Learning Progress
 
-* [ ] Track completed lessons
-* [ ] Calculate progress
-* [ ] Detect course completion
-* [ ] Track quiz/assignment results
-* [ ] Certificate eligibility
+* [x] Track completed lessons
+* [x] Calculate progress
+* [x] Detect course completion
+* [x] Track quiz/assignment results
+* [x] Certificate eligibility
 
 ### Branch
 
@@ -504,16 +500,16 @@ For SkillPoint and paid courses, the backend must verify the required transactio
 
 ---
 
-# Phase 10 — Certificates 🏆
+# Phase 10 — Certificates 🏆 ✅
 
 ### Features
 
-* [ ] Generate certificate ID
-* [ ] Store certificate metadata
-* [ ] Associate certificate with user/course
-* [ ] Store completion date
-* [ ] Optional PDF certificate
-* [ ] Optional certificate verification
+* [x] Generate certificate ID
+* [x] Store certificate metadata
+* [x] Associate certificate with user/course
+* [x] Store completion date
+* [x] Optional PDF certificate
+* [x] Optional certificate verification
 
 ### Branch
 
@@ -925,13 +921,13 @@ http://localhost:8080/swagger-ui/index.html
 ### API Groups
 
 ```text
-Authentication      ✅
-Users
-Skills
-Categories
-Courses
-Enrollment
-Progress
+Authentication ✅
+Users ✅
+Skills ✅
+Categories ✅
+Courses ✅
+Enrollment ✅
+Progress ✅
 SkillPoints
 Wallet
 Orders
@@ -1017,9 +1013,9 @@ feature/frontend-admin
 
 ### Database
 
-* [ ] MongoDB Atlas
+* [x] MongoDB Atlas
 * [ ] Production indexes
-* [ ] Secure credentials
+* [x] Secure credentials
 
 ### Frontend
 
@@ -1056,20 +1052,19 @@ backend/
         ├── java/
         │   └── com/
         │       └── skillswap/
-        │           └── skillswap/
-        │               └── backend/
-        │                   ├── config/
-        │                   ├── controller/
-        │                   ├── dto/
-        │                   │   ├── request/
-        │                   │   └── response/
-        │                   ├── entity/
-        │                   ├── repository/
-        │                   ├── service/
-        │                   │   └── impl/
-        │                   ├── security/
-        │                   ├── exception/
-        │                   └── SkillswapBackendApplication.java
+        │           └── backend/
+        │               ├── config/
+        │               ├── controller/
+        │               ├── dto/
+        │               │   ├── request/
+        │               │   └── response/
+        │               ├── entity/
+        │               ├── repository/
+        │               ├── service/
+        │               │   └── impl/
+        │               ├── security/
+        │               ├── exception/
+        │               └── SkillswapBackendApplication.java
         │
         └── resources/
             └── application.properties
@@ -1082,17 +1077,17 @@ backend/
 The backend PRD proposes collections including:
 
 ```text
-users
-skills
-user_skills
+users ✅
+skills ✅
+user_skills ✅
 categories
 
-courses
-course_lessons
-course_enrollments
-course_progress
+courses ✅
+course_lessons ✅
+course_enrollments ✅
+course_progress ✅
 
-certificates
+certificates ✅
 reviews
 
 skill_exchanges
@@ -1198,39 +1193,39 @@ docs: update API documentation
 
 # 📊 Project Milestones
 
-| Milestone            | Status |
-| -------------------- | ------ |
-| GitHub Setup         | ✅      |
-| Spring Boot Setup    | ✅      |
-| MongoDB Setup        | ✅      |
-| Common Configuration | ✅      |
-| Authentication       | ✅      |
-| User Profile         | ✅      |
-| Skill Management     | ✅      |
-| Categories           | ⬜      |
-| Course Management    | 🔧      |
-| Course Content       | ⬜      |
-| Course Discovery     | ⬜      |
-| Enrollment           | ⬜      |
-| Learning Progress    | ⬜      |
-| Certificates         | ⬜      |
-| SkillPoints          | ⬜      |
-| Wallet               | ⬜      |
-| Orders & Payments    | ⬜      |
-| Reviews              | ⬜      |
-| Skill Matching       | ⬜      |
-| Skill Exchange       | ⬜      |
-| Skill Sessions       | ⬜      |
-| Wishlist             | ⬜      |
-| Notifications        | ⬜      |
-| Admin                | ⬜      |
-| Moderation           | ⬜      |
-| Testing              | ⬜      |
-| Swagger              | ✅      |
-| Frontend             | ⬜      |
-| Integration          | ⬜      |
-| Docker               | ⬜      |
-| Deployment           | ⬜      |
+| Milestone             | Status |
+| ---------------------- | ------ |
+| GitHub Setup           | ✅      |
+| Spring Boot Setup      | ✅      |
+| MongoDB Setup          | ✅      |
+| Common Configuration   | ✅      |
+| Authentication         | ✅      |
+| User Profile           | ✅      |
+| Skill Management       | ✅      |
+| Categories             | ✅      |
+| Course Management      | ✅      |
+| Course Content         | ✅      |
+| Course Discovery       | ✅      |
+| Enrollment             | ✅      |
+| Learning Progress      | ✅      |
+| Certificates           | ✅      |
+| SkillPoints            | ⬜      |
+| Wallet                 | ⬜      |
+| Orders & Payments      | ⬜      |
+| Reviews                | ⬜      |
+| Skill Matching         | ⬜      |
+| Skill Exchange         | ⬜      |
+| Skill Sessions         | ⬜      |
+| Wishlist               | ⬜      |
+| Notifications          | ⬜      |
+| Admin                  | ⬜      |
+| Moderation             | ⬜      |
+| Testing                | ⬜      |
+| Swagger                | ✅      |
+| Frontend               | ⬜      |
+| Integration            | ⬜      |
+| Docker                 | ⬜      |
+| Deployment             | ⬜      |
 
 ---
 
@@ -1327,12 +1322,13 @@ The first complete backend milestone will include:
 ✓ Course Search & Filtering
 ✓ Enrollment
 ✓ Learning Progress
-✓ SkillPoints
-✓ Wallet & Earnings
-✓ Reviews & Ratings
-✓ Skill Matching / Exchange
-✓ Notifications
-✓ Admin APIs
+✓ Certificates
+□ SkillPoints
+□ Wallet & Earnings
+□ Reviews & Ratings
+□ Skill Matching / Exchange
+□ Notifications
+□ Admin APIs
 ✓ Validation & Exception Handling
 ✓ Swagger / OpenAPI
 ```
