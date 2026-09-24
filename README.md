@@ -92,8 +92,6 @@ The backend provides secure REST APIs, business logic, authentication, authoriza
 * MongoDB Atlas
 * Optional MinIO / Cloud Object Storage
 
-The backend specification defines Java 17, Spring Boot 3.x, Spring Security, JWT, Spring Data MongoDB, Maven, Bean Validation, and Git/GitHub as the core technology stack.
-
 ---
 
 # 🏗️ System Architecture
@@ -117,13 +115,13 @@ The backend specification defines Java 17, Spring Boot 3.x, Spring Security, JWT
         │     + JWT      │  │             │  │             │
         └───────────────┘  └─────────────┘  └──────┬──────┘
                                                    │
-                                            ┌──────▼──────┐
-                                            │ Repositories│
-                                            └──────┬──────┘
+                                             ┌─────▼──────┐
+                                             │ Repository │
+                                             └─────┬──────┘
                                                    │
-                                            ┌──────▼──────┐
-                                            │   MongoDB   │
-                                            └─────────────┘
+                                             ┌─────▼──────┐
+                                             │  MongoDB   │
+                                             └────────────┘
 ```
 
 The backend follows a **Controller → Service → Repository → MongoDB** architecture, with DTOs used for API requests and responses instead of exposing database documents directly.
@@ -134,7 +132,7 @@ The backend follows a **Controller → Service → Repository → MongoDB** arch
 
 This project is developed by **2 team members**.
 
-GitHub will be used for:
+GitHub is used for:
 
 * Version control
 * Branch management
@@ -150,21 +148,19 @@ main
  │
  └── develop
       │
-      ├── feature/project-setup      ✅ merged
-      ├── feature/auth-service       ✅ merged
-      ├── feature/profile-skills     ✅ merged
-      ├── feature/categories
-      ├── feature/courses
-      ├── feature/course-content
-      ├── feature/course-discovery
-      ├── feature/enrollment
-      ├── feature/skillpoints
-      ├── feature/wallet-payment
-      ├── feature/reviews
-      ├── feature/skill-exchange
-      ├── feature/notifications
-      ├── feature/admin
-      └── feature/testing-docs
+      ├── feature/project-setup          ✅ merged
+      ├── feature/auth-service           ✅ merged
+      ├── feature/profile-skills         ✅ merged
+      ├── feature/categories             ✅ merged
+      ├── feature/courses                ✅ merged
+      ├── feature/course-content         ✅ merged
+      ├── feature/course-discovery       ✅ merged
+      ├── feature/enrollment             ✅ merged
+      ├── feature/skillpoints            ✅ merged
+      ├── feature/wallet-payment         ✅ merged
+      ├── feature/reviews                ✅ merged
+      ├── feature/skill-exchange         ✅ merged
+      └── feature/skill-sessions         ✅ merged
 ```
 
 ### Git Rules
@@ -181,13 +177,14 @@ main
 
 # 🗺️ Development Roadmap
 
-The project follows a **backend-first development strategy**. The backend development order is based on the SkillSwap Backend PRD.
+The project follows a **backend-first development strategy**.
 
-> **Current status:** Phases 1–10 complete and merged into `main` (MVP checkpoint: project setup, JWT authentication, user profile & skills, categories, course management, course content, course discovery, enrollment, learning progress, certificates). Phase 11 (SkillPoints) is next.
+> **Current status: Phases 1–15 are complete.**
+> The backend now includes authentication, user profiles, skills, categories, courses, course content, discovery, enrollment, learning progress, certificates, SkillPoints, wallet/payment functionality, reviews, skill exchange, and skill sessions.
 
 ---
 
-## Phase 1 — Project Initialization ⚙️ ✅
+# Phase 1 — Project Initialization ⚙️ ✅
 
 ### Tasks
 
@@ -226,7 +223,7 @@ feature/project-setup
 feature/project-setup
 ```
 
-MongoDB is the primary application database, with indexes planned for frequently searched fields and common access patterns.
+MongoDB is the primary application database.
 
 ---
 
@@ -274,7 +271,7 @@ USER
 ADMIN
 ```
 
-A single `USER` account can both create courses and enroll in courses; a separate `STUDENT` or `INSTRUCTOR` role is not required.
+A single `USER` account can both create courses and enroll in courses.
 
 ### Branch
 
@@ -317,7 +314,7 @@ GET  /api/auth/me
 * [x] Skill categories
 * [x] Skill levels
 
-The PRD defines user relationships with skills using `CAN_TEACH` and `WANTS_TO_LEARN`.
+The user-skill relationship supports `CAN_TEACH` and `WANTS_TO_LEARN`.
 
 ### Branch
 
@@ -461,9 +458,7 @@ POST   /api/courses/{courseId}/lessons/{lessonId}/publish
 feature/course-discovery
 ```
 
-The backend specification explicitly requires search, filtering, sorting, and pagination for course discovery.
-
-### APIs
+### API
 
 ```text
 GET /api/courses/search
@@ -496,8 +491,6 @@ GET /api/courses/search
 feature/enrollment
 ```
 
-For SkillPoint and paid courses, the backend must verify the required transaction before granting course access.
-
 ---
 
 # Phase 10 — Certificates 🏆 ✅
@@ -509,7 +502,7 @@ For SkillPoint and paid courses, the backend must verify the required transactio
 * [x] Associate certificate with user/course
 * [x] Store completion date
 * [x] Optional PDF certificate
-* [x] Optional certificate verification
+* [x] Certificate verification
 
 ### Branch
 
@@ -519,7 +512,7 @@ feature/certificates
 
 ---
 
-# Phase 11 — SkillPoints 💎
+# Phase 11 — SkillPoints 💎 ✅
 
 SkillPoints are the internal reward currency of SkillSwap.
 
@@ -542,15 +535,15 @@ Platform Activities
 
 ### Features
 
-* [ ] SkillPoint balance
-* [ ] Credit transaction
-* [ ] Debit transaction
-* [ ] Transaction history
-* [ ] Prevent negative balance
-* [ ] Atomic balance updates
-* [ ] Idempotency protection
+* [x] SkillPoint balance
+* [x] Credit transaction
+* [x] Debit transaction
+* [x] Transaction history
+* [x] Prevent negative balance
+* [x] Atomic balance updates
+* [x] Idempotency protection
 
-Every SkillPoint change must be recorded as a transaction rather than simply overwriting the balance.
+Every SkillPoint change is recorded as a transaction.
 
 ### Branch
 
@@ -567,32 +560,32 @@ GET /api/me/skillpoints/transactions
 
 ---
 
-# Phase 12 — Wallet, Orders & Payments 💰
+# Phase 12 — Wallet, Orders & Payments 💰 ✅
 
 ## Wallet
 
-* [ ] Creator wallet
-* [ ] Pending earnings
-* [ ] Available earnings
-* [ ] Wallet transactions
-* [ ] Platform commission
+* [x] Creator wallet
+* [x] Pending earnings
+* [x] Available earnings
+* [x] Wallet transactions
+* [x] Platform commission
 
 ## Orders
 
-* [ ] Create order
-* [ ] Unique order ID
-* [ ] Order status
-* [ ] Order history
+* [x] Create order
+* [x] Unique order ID
+* [x] Order status
+* [x] Order history
 
 ## Payments
 
-* [ ] Create payment
-* [ ] Verify payment
-* [ ] Handle successful payment
-* [ ] Handle failed payment
-* [ ] Handle cancelled payment
-* [ ] Prevent duplicate payment callbacks
-* [ ] Test/sandbox payment integration
+* [x] Create payment
+* [x] Verify payment
+* [x] Handle successful payment
+* [x] Handle failed payment
+* [x] Handle cancelled payment
+* [x] Prevent duplicate payment callbacks
+* [x] Test/sandbox payment integration
 
 ### Branch
 
@@ -600,22 +593,20 @@ GET /api/me/skillpoints/transactions
 feature/wallet-payment
 ```
 
-The PRD requires server-side payment verification and enrollment only after successful payment.
-
 ---
 
-# Phase 13 — Reviews & Ratings ⭐
+# Phase 13 — Reviews & Ratings ⭐ ✅
 
 ### Features
 
-* [ ] Course reviews
-* [ ] Session reviews
-* [ ] Rating from 1–5
-* [ ] Written review
-* [ ] Prevent unauthorized reviews
-* [ ] Prevent duplicate reviews
-* [ ] Review reporting
-* [ ] Rating aggregation
+* [x] Course reviews
+* [x] Session reviews
+* [x] Rating from 1–5
+* [x] Written review
+* [x] Prevent unauthorized reviews
+* [x] Prevent duplicate reviews
+* [x] Review reporting
+* [x] Rating aggregation
 
 ### Branch
 
@@ -634,7 +625,7 @@ DELETE /api/reviews/{id}
 
 ---
 
-# Phase 14 — Skill Exchange & Matching 🤝
+# Phase 14 — Skill Exchange & Matching 🤝 ✅
 
 This is one of the core features of SkillSwap.
 
@@ -665,19 +656,19 @@ Java
 
 ### Features
 
-* [ ] Find compatible users
-* [ ] Rule-based matching
-* [ ] Match teaching skills with learning interests
-* [ ] Match reciprocal requirements
-* [ ] Calculate compatibility
-* [ ] Send exchange request
-* [ ] Accept request
-* [ ] Reject request
-* [ ] Cancel request
-* [ ] Complete exchange
-* [ ] Review after completion
+* [x] Find compatible users
+* [x] Rule-based matching
+* [x] Match teaching skills with learning interests
+* [x] Match reciprocal requirements
+* [x] Calculate compatibility
+* [x] Send exchange request
+* [x] Accept request
+* [x] Reject request
+* [x] Cancel request
+* [x] Complete exchange
+* [x] Review after completion
 
-The MVP uses rule-based matching; optional factors include experience, language, availability, and rating.
+The MVP uses rule-based matching.
 
 ### Branch
 
@@ -700,22 +691,22 @@ PUT /api/skill-exchange/{id}/complete
 
 ---
 
-# Phase 15 — Skill Sessions 📅
+# Phase 15 — Skill Sessions 📅 ✅
 
 ### Features
 
-* [ ] Create skill session
-* [ ] Set skill
-* [ ] Session description
-* [ ] Duration
-* [ ] Availability
-* [ ] Price / SkillPoint cost
-* [ ] Browse sessions
-* [ ] Book session
-* [ ] Verify payment/SkillPoints
-* [ ] Track booking
-* [ ] Complete session
-* [ ] Review session
+* [x] Create skill session
+* [x] Set skill
+* [x] Session description
+* [x] Duration
+* [x] Availability
+* [x] Price / SkillPoint cost
+* [x] Browse sessions
+* [x] Book session
+* [x] Verify payment/SkillPoints
+* [x] Track booking
+* [x] Complete session
+* [x] Review session
 
 ### Branch
 
@@ -726,6 +717,8 @@ feature/skill-sessions
 ---
 
 # Phase 16 — Wishlist ❤️
+
+**Status: ⏳ Planned**
 
 ### Features
 
@@ -743,6 +736,8 @@ feature/wishlist
 ---
 
 # Phase 17 — Notifications 🔔
+
+**Status: ⏳ Planned**
 
 Notifications will be generated for important platform events.
 
@@ -773,18 +768,11 @@ Notifications will be generated for important platform events.
 feature/notifications
 ```
 
-### APIs
-
-```text
-GET /api/notifications
-
-PUT /api/notifications/{id}/read
-PUT /api/notifications/read-all
-```
-
 ---
 
 # Phase 18 — Admin Management 🛡️
+
+**Status: ⏳ Planned**
 
 ### Admin Features
 
@@ -805,28 +793,11 @@ PUT /api/notifications/read-all
 feature/admin
 ```
 
-### APIs
-
-```text
-GET /api/admin/users
-PUT /api/admin/users/{id}/suspend
-
-GET /api/admin/courses
-PUT /api/admin/courses/{id}/approve
-PUT /api/admin/courses/{id}/reject
-
-GET /api/admin/reports
-PUT /api/admin/reports/{id}/resolve
-
-GET /api/admin/transactions
-GET /api/admin/analytics
-```
-
 ---
 
 # Phase 19 — Reports & Moderation 🚨
 
-### Features
+**Status: ⏳ Planned**
 
 Users can report:
 
@@ -853,13 +824,11 @@ Content
 feature/moderation
 ```
 
-Admin actions should be auditable.
-
 ---
 
 # Phase 20 — Advanced Messaging 💬
 
-Messaging is an advanced feature.
+**Status: ⏳ Planned**
 
 ### Features
 
@@ -881,6 +850,8 @@ feature/messaging
 
 # Phase 21 — Testing 🧪
 
+**Status: ⏳ Planned**
+
 ## Unit Testing
 
 * [ ] Service tests
@@ -897,8 +868,6 @@ feature/messaging
 * [ ] Payment workflow
 * [ ] Skill exchange workflow
 * [ ] Admin authorization
-
-The PRD specifically requires testing for authentication, enrollment models, SkillPoints, payment idempotency, skill exchange, and Admin authorization.
 
 ### Branch
 
@@ -928,21 +897,25 @@ Categories ✅
 Courses ✅
 Enrollment ✅
 Progress ✅
-SkillPoints
-Wallet
-Orders
-Payments
-Reviews
-Skill Exchange
-Notifications
-Admin
+Certificates ✅
+SkillPoints ✅
+Wallet ✅
+Orders ✅
+Payments ✅
+Reviews ✅
+Skill Exchange ✅
+Skill Sessions ✅
+Notifications ⏳
+Admin ⏳
 ```
 
 ---
 
 # 🎨 Phase 23 — Frontend Development
 
-**Backend complete hone ke baad frontend start hoga.**
+**Status: ⏳ Planned**
+
+Backend development through **Phase 15 is complete**. Frontend development will follow.
 
 ### Frontend Modules
 
@@ -961,27 +934,17 @@ frontend/
 ├── Wallet
 ├── Skill Matching
 ├── Skill Exchange
+├── Skill Sessions
 ├── Notifications
 ├── Reviews
 └── Admin Dashboard
 ```
 
-### Frontend Branches
-
-```text
-feature/frontend-auth
-feature/frontend-profile
-feature/frontend-skills
-feature/frontend-courses
-feature/frontend-learning
-feature/frontend-skillpoints
-feature/frontend-exchange
-feature/frontend-admin
-```
-
 ---
 
 # 🔗 Phase 24 — Frontend & Backend Integration
+
+**Status: ⏳ Planned**
 
 ### Tasks
 
@@ -996,6 +959,7 @@ feature/frontend-admin
 * [ ] Connect wallet/payment APIs
 * [ ] Connect matching APIs
 * [ ] Connect exchange APIs
+* [ ] Connect session APIs
 * [ ] Connect notification APIs
 * [ ] Connect Admin APIs
 * [ ] Handle API errors
@@ -1005,41 +969,25 @@ feature/frontend-admin
 
 # 🐳 Phase 25 — Docker & Deployment
 
-### Backend
+**Status: ⏳ Planned**
+
+## Backend
 
 * [ ] Dockerfile
 * [ ] Environment variables
 * [ ] Production configuration
 
-### Database
+## Database
 
 * [x] MongoDB Atlas
 * [ ] Production indexes
 * [x] Secure credentials
 
-### Frontend
+## Frontend
 
 * [ ] Production build
 * [ ] Environment configuration
 * [ ] Deploy frontend
-
-### Final Architecture
-
-```text
-                    ┌──────────────────┐
-                    │ React Frontend   │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │ Spring Boot API  │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │ MongoDB / Atlas  │
-                    └──────────────────┘
-```
 
 ---
 
@@ -1074,39 +1022,37 @@ backend/
 
 # 🗄️ MongoDB Collections
 
-The backend PRD proposes collections including:
-
 ```text
-users ✅
-skills ✅
-user_skills ✅
-categories
+users                         ✅
+skills                        ✅
+user_skills                   ✅
+categories                    ✅
 
-courses ✅
-course_lessons ✅
-course_enrollments ✅
-course_progress ✅
+courses                       ✅
+course_lessons                ✅
+course_enrollments            ✅
+course_progress               ✅
 
-certificates ✅
-reviews
+certificates                  ✅
+reviews                       ✅
 
-skill_exchanges
-skill_exchange_requests
-skill_sessions
+skill_exchanges               ✅
+skill_exchange_requests       ✅
+skill_sessions                ✅
 
-wallets
-wallet_transactions
-skillpoint_transactions
+wallets                       ✅
+wallet_transactions           ✅
+skillpoint_transactions       ✅
 
-orders
-payments
-wishlists
+orders                        ✅
+payments                      ✅
+wishlists                     ⏳
 
-notifications
-reports
+notifications                 ⏳
+reports                       ⏳
 
-messages
-conversations
+messages                      ⏳
+conversations                 ⏳
 ```
 
 ---
@@ -1178,6 +1124,9 @@ feat: add skill management
 feat: implement course CRUD
 feat: add course enrollment
 feat: implement SkillPoint transactions
+feat: implement wallet and payment flow
+feat: add skill exchange
+feat: add skill sessions
 
 fix: resolve JWT validation issue
 fix: prevent duplicate enrollment
@@ -1193,55 +1142,55 @@ docs: update API documentation
 
 # 📊 Project Milestones
 
-| Milestone             | Status |
-| ---------------------- | ------ |
-| GitHub Setup           | ✅      |
-| Spring Boot Setup      | ✅      |
-| MongoDB Setup          | ✅      |
-| Common Configuration   | ✅      |
-| Authentication         | ✅      |
-| User Profile           | ✅      |
-| Skill Management       | ✅      |
-| Categories             | ✅      |
-| Course Management      | ✅      |
-| Course Content         | ✅      |
-| Course Discovery       | ✅      |
-| Enrollment             | ✅      |
-| Learning Progress      | ✅      |
-| Certificates           | ✅      |
-| SkillPoints            | ⬜      |
-| Wallet                 | ⬜      |
-| Orders & Payments      | ⬜      |
-| Reviews                | ⬜      |
-| Skill Matching         | ⬜      |
-| Skill Exchange         | ⬜      |
-| Skill Sessions         | ⬜      |
-| Wishlist               | ⬜      |
-| Notifications          | ⬜      |
-| Admin                  | ⬜      |
-| Moderation             | ⬜      |
-| Testing                | ⬜      |
-| Swagger                | ✅      |
-| Frontend               | ⬜      |
-| Integration            | ⬜      |
-| Docker                 | ⬜      |
-| Deployment             | ⬜      |
+| Milestone            | Status |
+| -------------------- | ------ |
+| GitHub Setup         | ✅      |
+| Spring Boot Setup    | ✅      |
+| MongoDB Setup        | ✅      |
+| Common Configuration | ✅      |
+| Authentication       | ✅      |
+| User Profile         | ✅      |
+| Skill Management     | ✅      |
+| Categories           | ✅      |
+| Course Management    | ✅      |
+| Course Content       | ✅      |
+| Course Discovery     | ✅      |
+| Enrollment           | ✅      |
+| Learning Progress    | ✅      |
+| Certificates         | ✅      |
+| SkillPoints          | ✅      |
+| Wallet               | ✅      |
+| Orders & Payments    | ✅      |
+| Reviews              | ✅      |
+| Skill Matching       | ✅      |
+| Skill Exchange       | ✅      |
+| Skill Sessions       | ✅      |
+| Wishlist             | ⬜      |
+| Notifications        | ⬜      |
+| Admin                | ⬜      |
+| Moderation           | ⬜      |
+| Testing              | ⬜      |
+| Swagger              | ✅      |
+| Frontend             | ⬜      |
+| Integration          | ⬜      |
+| Docker               | ⬜      |
+| Deployment           | ⬜      |
 
 ---
 
-# 🚀 Complete User Flow
+# 🚀 Complete Backend User Flow
 
 ```text
                     ┌──────────────┐
-                    │    Register  │
+                    │   Register   │
                     └──────┬───────┘
                            ↓
                     ┌──────────────┐
-                    │     Login    │
+                    │    Login     │
                     └──────┬───────┘
                            ↓
                     ┌──────────────┐
-                    │ Create Profile│
+                    │Create Profile│
                     └──────┬───────┘
                            ↓
                  ┌────────────────────┐
@@ -1267,32 +1216,49 @@ docs: update API documentation
                     └──────────────┘
 
 
-       ┌────────────────────────────────────────┐
-       │           SKILL EXCHANGE               │
-       └────────────────────┬───────────────────┘
-                            ↓
-                     Find Match
-                            ↓
+        ┌────────────────────────────────────────┐
+        │           SKILL EXCHANGE               │
+        └────────────────────┬───────────────────┘
+                             ↓
+                        Find Match
+                             ↓
                   Send Exchange Request
-                            ↓
-                     Accept / Reject
-                            ↓
-                    Exchange Skills
-                            ↓
-                       Complete
-                            ↓
-                       Review
+                             ↓
+                       Accept / Reject
+                             ↓
+                       Exchange Skills
+                             ↓
+                          Complete
+                             ↓
+                           Review
+
+
+        ┌────────────────────────────────────────┐
+        │             SKILL SESSION              │
+        └────────────────────┬───────────────────┘
+                             ↓
+                      Create Session
+                             ↓
+                      Browse Sessions
+                             ↓
+                       Book Session
+                             ↓
+                  Verify SkillPoints/Payment
+                             ↓
+                     Complete Session
+                             ↓
+                          Review
 ```
 
 ---
 
 # 🌟 Advanced Features
 
-The following features can be added after the core MVP:
+The following features can be added after the core backend:
 
 * Real payment gateway
 * Creator payouts
-* One-to-one session booking
+* One-to-one session booking enhancements
 * Real-time WebSocket messaging
 * MinIO object storage
 * AI course recommendations
@@ -1303,37 +1269,63 @@ The following features can be added after the core MVP:
 * Audit logs
 * Advanced moderation
 
-These are classified as advanced backend features in the PRD.
-
 ---
 
-# ✅ Backend MVP
+# ✅ Backend Progress — Phase 15 Checkpoint
 
-The first complete backend milestone will include:
+The backend has now completed **15 development phases**:
 
 ```text
-✓ Spring Boot setup
+✓ Spring Boot Setup
 ✓ MongoDB
+✓ Common Backend Infrastructure
 ✓ JWT Authentication
-✓ Unified User Profile
-✓ Skill Management
-✓ Course CRUD
-✓ FREE / SKILLPOINT / PAID Courses
-✓ Course Search & Filtering
+✓ User Profile & Skills
+✓ Categories
+✓ Course Management
+✓ Course Content
+✓ Course Discovery
 ✓ Enrollment
 ✓ Learning Progress
 ✓ Certificates
-□ SkillPoints
-□ Wallet & Earnings
-□ Reviews & Ratings
-□ Skill Matching / Exchange
-□ Notifications
-□ Admin APIs
-✓ Validation & Exception Handling
-✓ Swagger / OpenAPI
+✓ SkillPoints
+✓ Wallet / Orders / Payments
+✓ Reviews & Ratings
+✓ Skill Matching / Exchange
+✓ Skill Sessions
 ```
 
-This corresponds to the MVP scope defined in the Backend PRD.
+### Current Backend Scope
+
+```text
+Authentication                 ✅
+User Profile                  ✅
+Skill Management              ✅
+Categories                    ✅
+Course Management             ✅
+Course Content                ✅
+Course Discovery              ✅
+Enrollment                    ✅
+Learning Progress             ✅
+Certificates                  ✅
+SkillPoints                   ✅
+Wallet                        ✅
+Orders & Payments             ✅
+Reviews & Ratings             ✅
+Skill Exchange                ✅
+Skill Sessions                ✅
+Swagger / OpenAPI             ✅
+
+Wishlist                      ⏳
+Notifications                 ⏳
+Admin Management              ⏳
+Moderation                    ⏳
+Messaging                     ⏳
+Testing                       ⏳
+Frontend                      ⏳
+Integration                   ⏳
+Docker & Deployment           ⏳
+```
 
 ---
 
