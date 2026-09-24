@@ -183,7 +183,7 @@ main
 
 The project follows a **backend-first development strategy**. The backend development order is based on the SkillSwap Backend PRD.
 
-> **Current status:** Phases 1–14 complete and merged into `main` (project setup, JWT authentication, user profile & skills, categories, course management, course content, course discovery, enrollment, learning progress, certificates, SkillPoints, wallet & payments, reviews & ratings, skill matching & exchange). Phase 15 (Skill Sessions) is next.
+> **Current status:** Phases 1–15 complete. The backend now covers project setup, JWT authentication, profiles & skills, categories, course management, course content, course discovery, enrollment, learning progress, certificates, SkillPoints, wallet & payments, reviews, skill exchange, and skill sessions.
 
 ---
 
@@ -617,15 +617,13 @@ GET  /api/orders/{orderNumber}
 ### Features
 
 * [x] Course reviews
-* [ ] Session reviews
+* [x] Session reviews
 * [x] Rating from 1–5
 * [x] Written review
 * [x] Prevent unauthorized reviews
 * [x] Prevent duplicate reviews
-* [ ] Review reporting
+* [x] Review reporting
 * [x] Rating aggregation
-
-Session reviews and full review reporting/moderation are deferred to Phase 15 (Skill Sessions) and Phase 19 (Reports & Moderation), where they naturally belong.
 
 ### Branch
 
@@ -683,9 +681,9 @@ Java
 * [x] Send exchange request
 * [x] Accept request
 * [x] Reject request
-* [ ] Cancel request
+* [x] Cancel request
 * [x] Complete exchange
-* [ ] Review after completion
+* [x] Review after completion
 
 The MVP uses rule-based matching; optional factors include experience, language, availability, and rating. Cancel-request support and post-exchange reviews are planned as a follow-up refinement to this phase.
 
@@ -710,22 +708,22 @@ PUT /api/skill-exchange/{id}/complete
 
 ---
 
-# Phase 15 — Skill Sessions 📅
+# Phase 15 — Skill Sessions 📅 ✅
 
 ### Features
 
-* [ ] Create skill session
-* [ ] Set skill
-* [ ] Session description
-* [ ] Duration
-* [ ] Availability
-* [ ] Price / SkillPoint cost
-* [ ] Browse sessions
-* [ ] Book session
-* [ ] Verify payment/SkillPoints
-* [ ] Track booking
-* [ ] Complete session
-* [ ] Review session
+* [x] Create skill session
+* [x] Set skill
+* [x] Session description
+* [x] Duration
+* [x] Availability
+* [x] Price / SkillPoint cost
+* [x] Browse sessions
+* [x] Book session
+* [x] Verify payment/SkillPoints
+* [x] Track booking
+* [x] Complete session
+* [x] Review session
 
 ### Branch
 
@@ -1226,7 +1224,7 @@ docs: update API documentation
 | Reviews                | ✅      |
 | Skill Matching         | ✅      |
 | Skill Exchange         | ✅      |
-| Skill Sessions         | ⬜      |
+| Skill Sessions         | ✅      |
 | Wishlist               | ⬜      |
 | Notifications          | ⬜      |
 | Admin                  | ⬜      |
@@ -1320,7 +1318,7 @@ These are classified as advanced backend features in the PRD.
 
 # ✅ Backend MVP
 
-The first complete backend milestone will include:
+The backend milestone completed through Phase 15 includes:
 
 ```text
 ✓ Spring Boot setup

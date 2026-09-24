@@ -38,14 +38,17 @@ public class SecurityConfig {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+
         provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(passwordEncoder());
+
         return provider;
     }
 
     @Bean
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration config) throws Exception {
+
         return config.getAuthenticationManager();
     }
 
@@ -110,6 +113,12 @@ public class SecurityConfig {
                                 "/api/auth/login",
                                 "/api/auth/forgot-password",
                                 "/api/auth/reset-password"
+                        ).permitAll()
+
+                        // Payment callback
+                        .requestMatchers(
+                                HttpMethod.POST,
+                                "/api/orders/payment-callback"
                         ).permitAll()
 
                         // Swagger
