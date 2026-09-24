@@ -55,6 +55,8 @@ public class SkillPointTransaction {
         CHALLENGE_REWARD,
         COURSE_ENROLLMENT,
         SKILL_SESSION,
+        SESSION_BOOKING,
+        SESSION_EARNING,
         PLATFORM_ACTIVITY,
         ADMIN_ADJUSTMENT
     }
