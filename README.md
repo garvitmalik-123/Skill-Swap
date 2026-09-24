@@ -153,15 +153,15 @@ main
       ├── feature/project-setup      ✅ merged
       ├── feature/auth-service       ✅ merged
       ├── feature/profile-skills     ✅ merged
-      ├── feature/categories
-      ├── feature/courses
-      ├── feature/course-content
-      ├── feature/course-discovery
-      ├── feature/enrollment
-      ├── feature/skillpoints
-      ├── feature/wallet-payment
-      ├── feature/reviews
-      ├── feature/skill-exchange
+      ├── feature/categories         ✅ merged
+      ├── feature/courses            ✅ merged
+      ├── feature/course-content     ✅ merged
+      ├── feature/course-discovery   ✅ merged
+      ├── feature/enrollment         ✅ merged
+      ├── feature/skillpoints        ✅ merged
+      ├── feature/wallet-payment     ✅ merged
+      ├── feature/reviews            ✅ merged
+      ├── feature/skill-exchange     ✅ merged
       ├── feature/notifications
       ├── feature/admin
       └── feature/testing-docs
@@ -602,6 +602,14 @@ feature/wallet-payment
 
 The PRD requires server-side payment verification and enrollment only after successful payment.
 
+### APIs
+
+```text
+POST /api/orders
+POST /api/orders/payment-callback
+GET  /api/orders/{orderNumber}
+```
+
 ---
 
 # Phase 13 — Reviews & Ratings ⭐ ✅
@@ -677,7 +685,7 @@ Java
 * [x] Complete exchange
 * [x] Review after completion
 
-The MVP uses rule-based matching; optional factors include experience, language, availability, and rating.
+The MVP uses rule-based matching; optional factors include experience, language, availability, and rating. Cancel-request support and post-exchange reviews are planned as a follow-up refinement to this phase.
 
 ### Branch
 
@@ -928,12 +936,12 @@ Categories ✅
 Courses ✅
 Enrollment ✅
 Progress ✅
-SkillPoints
-Wallet
-Orders
-Payments
-Reviews
-Skill Exchange
+SkillPoints ✅
+Wallet ✅
+Orders ✅
+Payments ✅
+Reviews ✅
+Skill Exchange ✅
 Notifications
 Admin
 ```
@@ -1080,7 +1088,7 @@ The backend PRD proposes collections including:
 users ✅
 skills ✅
 user_skills ✅
-categories
+categories ✅
 
 courses ✅
 course_lessons ✅
@@ -1088,18 +1096,17 @@ course_enrollments ✅
 course_progress ✅
 
 certificates ✅
-reviews
+reviews ✅
 
-skill_exchanges
-skill_exchange_requests
+skill_exchange_requests ✅
 skill_sessions
 
-wallets
-wallet_transactions
-skillpoint_transactions
+wallets ✅
+wallet_transactions ✅
+skillpoint_transactions ✅
 
-orders
-payments
+orders ✅
+payments ✅
 wishlists
 
 notifications
@@ -1178,6 +1185,8 @@ feat: add skill management
 feat: implement course CRUD
 feat: add course enrollment
 feat: implement SkillPoint transactions
+feat: add review and rating system
+feat: add skill matching and exchange requests
 
 fix: resolve JWT validation issue
 fix: prevent duplicate enrollment
