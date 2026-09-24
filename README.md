@@ -153,15 +153,15 @@ main
       ├── feature/project-setup      ✅ merged
       ├── feature/auth-service       ✅ merged
       ├── feature/profile-skills     ✅ merged
-      ├── feature/categories
-      ├── feature/courses
-      ├── feature/course-content
-      ├── feature/course-discovery
-      ├── feature/enrollment
-      ├── feature/skillpoints
-      ├── feature/wallet-payment
-      ├── feature/reviews
-      ├── feature/skill-exchange
+      ├── feature/categories         ✅ merged
+      ├── feature/courses            ✅ merged
+      ├── feature/course-content     ✅ merged
+      ├── feature/course-discovery   ✅ merged
+      ├── feature/enrollment         ✅ merged
+      ├── feature/skillpoints        ✅ merged
+      ├── feature/wallet-payment     ✅ merged
+      ├── feature/reviews            ✅ merged
+      ├── feature/skill-exchange     ✅ merged
       ├── feature/notifications
       ├── feature/admin
       └── feature/testing-docs
@@ -183,7 +183,7 @@ main
 
 The project follows a **backend-first development strategy**. The backend development order is based on the SkillSwap Backend PRD.
 
-> **Current status:** Phases 1–10 complete and merged into `main` (MVP checkpoint: project setup, JWT authentication, user profile & skills, categories, course management, course content, course discovery, enrollment, learning progress, certificates). Phase 11 (SkillPoints) is next.
+> **Current status:** Phases 1–14 complete and merged into `main` (project setup, JWT authentication, user profile & skills, categories, course management, course content, course discovery, enrollment, learning progress, certificates, SkillPoints, wallet & payments, reviews & ratings, skill matching & exchange). Phase 15 (Skill Sessions) is next.
 
 ---
 
@@ -519,7 +519,7 @@ feature/certificates
 
 ---
 
-# Phase 11 — SkillPoints 💎
+# Phase 11 — SkillPoints 💎 ✅
 
 SkillPoints are the internal reward currency of SkillSwap.
 
@@ -542,13 +542,13 @@ Platform Activities
 
 ### Features
 
-* [ ] SkillPoint balance
-* [ ] Credit transaction
-* [ ] Debit transaction
-* [ ] Transaction history
-* [ ] Prevent negative balance
-* [ ] Atomic balance updates
-* [ ] Idempotency protection
+* [x] SkillPoint balance
+* [x] Credit transaction
+* [x] Debit transaction
+* [x] Transaction history
+* [x] Prevent negative balance
+* [x] Atomic balance updates
+* [x] Idempotency protection
 
 Every SkillPoint change must be recorded as a transaction rather than simply overwriting the balance.
 
@@ -567,32 +567,32 @@ GET /api/me/skillpoints/transactions
 
 ---
 
-# Phase 12 — Wallet, Orders & Payments 💰
+# Phase 12 — Wallet, Orders & Payments 💰 ✅
 
 ## Wallet
 
-* [ ] Creator wallet
-* [ ] Pending earnings
-* [ ] Available earnings
-* [ ] Wallet transactions
-* [ ] Platform commission
+* [x] Creator wallet
+* [x] Pending earnings
+* [x] Available earnings
+* [x] Wallet transactions
+* [x] Platform commission
 
 ## Orders
 
-* [ ] Create order
-* [ ] Unique order ID
-* [ ] Order status
-* [ ] Order history
+* [x] Create order
+* [x] Unique order ID
+* [x] Order status
+* [x] Order history
 
 ## Payments
 
-* [ ] Create payment
-* [ ] Verify payment
-* [ ] Handle successful payment
-* [ ] Handle failed payment
-* [ ] Handle cancelled payment
-* [ ] Prevent duplicate payment callbacks
-* [ ] Test/sandbox payment integration
+* [x] Create payment
+* [x] Verify payment
+* [x] Handle successful payment
+* [x] Handle failed payment
+* [x] Handle cancelled payment
+* [x] Prevent duplicate payment callbacks
+* [x] Test/sandbox payment integration
 
 ### Branch
 
@@ -602,20 +602,30 @@ feature/wallet-payment
 
 The PRD requires server-side payment verification and enrollment only after successful payment.
 
+### APIs
+
+```text
+POST /api/orders
+POST /api/orders/payment-callback
+GET  /api/orders/{orderNumber}
+```
+
 ---
 
-# Phase 13 — Reviews & Ratings ⭐
+# Phase 13 — Reviews & Ratings ⭐ ✅
 
 ### Features
 
-* [ ] Course reviews
+* [x] Course reviews
 * [ ] Session reviews
-* [ ] Rating from 1–5
-* [ ] Written review
-* [ ] Prevent unauthorized reviews
-* [ ] Prevent duplicate reviews
+* [x] Rating from 1–5
+* [x] Written review
+* [x] Prevent unauthorized reviews
+* [x] Prevent duplicate reviews
 * [ ] Review reporting
-* [ ] Rating aggregation
+* [x] Rating aggregation
+
+Session reviews and full review reporting/moderation are deferred to Phase 15 (Skill Sessions) and Phase 19 (Reports & Moderation), where they naturally belong.
 
 ### Branch
 
@@ -634,7 +644,7 @@ DELETE /api/reviews/{id}
 
 ---
 
-# Phase 14 — Skill Exchange & Matching 🤝
+# Phase 14 — Skill Exchange & Matching 🤝 ✅
 
 This is one of the core features of SkillSwap.
 
@@ -665,19 +675,19 @@ Java
 
 ### Features
 
-* [ ] Find compatible users
-* [ ] Rule-based matching
-* [ ] Match teaching skills with learning interests
-* [ ] Match reciprocal requirements
-* [ ] Calculate compatibility
-* [ ] Send exchange request
-* [ ] Accept request
-* [ ] Reject request
+* [x] Find compatible users
+* [x] Rule-based matching
+* [x] Match teaching skills with learning interests
+* [x] Match reciprocal requirements
+* [x] Calculate compatibility
+* [x] Send exchange request
+* [x] Accept request
+* [x] Reject request
 * [ ] Cancel request
-* [ ] Complete exchange
+* [x] Complete exchange
 * [ ] Review after completion
 
-The MVP uses rule-based matching; optional factors include experience, language, availability, and rating.
+The MVP uses rule-based matching; optional factors include experience, language, availability, and rating. Cancel-request support and post-exchange reviews are planned as a follow-up refinement to this phase.
 
 ### Branch
 
@@ -928,12 +938,12 @@ Categories ✅
 Courses ✅
 Enrollment ✅
 Progress ✅
-SkillPoints
-Wallet
-Orders
-Payments
-Reviews
-Skill Exchange
+SkillPoints ✅
+Wallet ✅
+Orders ✅
+Payments ✅
+Reviews ✅
+Skill Exchange ✅
 Notifications
 Admin
 ```
@@ -1080,7 +1090,7 @@ The backend PRD proposes collections including:
 users ✅
 skills ✅
 user_skills ✅
-categories
+categories ✅
 
 courses ✅
 course_lessons ✅
@@ -1088,18 +1098,17 @@ course_enrollments ✅
 course_progress ✅
 
 certificates ✅
-reviews
+reviews ✅
 
-skill_exchanges
-skill_exchange_requests
+skill_exchange_requests ✅
 skill_sessions
 
-wallets
-wallet_transactions
-skillpoint_transactions
+wallets ✅
+wallet_transactions ✅
+skillpoint_transactions ✅
 
-orders
-payments
+orders ✅
+payments ✅
 wishlists
 
 notifications
@@ -1178,6 +1187,8 @@ feat: add skill management
 feat: implement course CRUD
 feat: add course enrollment
 feat: implement SkillPoint transactions
+feat: add review and rating system
+feat: add skill matching and exchange requests
 
 fix: resolve JWT validation issue
 fix: prevent duplicate enrollment
@@ -1209,12 +1220,12 @@ docs: update API documentation
 | Enrollment             | ✅      |
 | Learning Progress      | ✅      |
 | Certificates           | ✅      |
-| SkillPoints            | ⬜      |
-| Wallet                 | ⬜      |
-| Orders & Payments      | ⬜      |
-| Reviews                | ⬜      |
-| Skill Matching         | ⬜      |
-| Skill Exchange         | ⬜      |
+| SkillPoints            | ✅      |
+| Wallet                 | ✅      |
+| Orders & Payments      | ✅      |
+| Reviews                | ✅      |
+| Skill Matching         | ✅      |
+| Skill Exchange         | ✅      |
 | Skill Sessions         | ⬜      |
 | Wishlist               | ⬜      |
 | Notifications          | ⬜      |
@@ -1323,10 +1334,10 @@ The first complete backend milestone will include:
 ✓ Enrollment
 ✓ Learning Progress
 ✓ Certificates
-□ SkillPoints
-□ Wallet & Earnings
-□ Reviews & Ratings
-□ Skill Matching / Exchange
+✓ SkillPoints
+✓ Wallet & Earnings
+✓ Reviews & Ratings
+✓ Skill Matching / Exchange
 □ Notifications
 □ Admin APIs
 ✓ Validation & Exception Handling
