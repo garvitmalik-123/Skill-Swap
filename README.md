@@ -1,102 +1,107 @@
-# 🤝 SkillSwap
+the project is completed till phase 15 update the readme.md
+Pasted markdown(2).md
+File
+this is the readme.md
 
-> **A peer-to-peer learning and skill-exchange platform where users can both teach and learn, create courses, exchange skills, earn SkillPoints, and build reputation.**
+Done. I updated the README to reflect that Phases 1–15 are completed, including:
 
----
+✅ Phase 11 — SkillPoints
+✅ Phase 12 — Wallet, Orders & Payments
+✅ Phase 13 — Reviews & Ratings
+✅ Phase 14 — Skill Exchange & Matching
+✅ Phase 15 — Skill Sessions
+Updated roadmap/current status
+Updated project milestones
+Updated Backend MVP checklist
 
-## 👨‍💻 Author
+The original README structure and terminology are preserved.
 
-**Garvit Malik**
+Updated file: 
+Download README.md
 
-**Shivika**
+README_updated.md
+Document
+give copy paste code
 
----
+Sure — here is the copy-paste-ready README.md updated through Phase 15. I’ve kept the original structure and updated the status/checklists/milestones accordingly.
 
-## 📌 About the Project
+SkillSwap README.md
+🤝 SkillSwap
 
-**SkillSwap** is a full-stack peer-to-peer learning platform.
+A peer-to-peer learning and skill-exchange platform where users can both teach and learn, create courses, exchange skills, earn SkillPoints, and build reputation.
 
-Unlike traditional learning platforms, a single normal user account can act as both a **learner and a teacher**.
+👨‍💻 Author
+
+Garvit Malik
+
+Shivika
+
+📌 About the Project
+
+SkillSwap is a full-stack peer-to-peer learning platform.
+
+Unlike traditional learning platforms, a single normal user account can act as both a learner and a teacher.
 
 Users can:
 
-* Create and manage their profiles
-* Add skills they can teach
-* Add skills they want to learn
-* Create courses
-* Enroll in courses
-* Track learning progress
-* Earn and spend SkillPoints
-* Exchange skills directly with other users
-* Book skill sessions
-* Send and receive skill-exchange requests
-* Review courses and users
-* Receive notifications
-* Build their reputation
+Create and manage their profiles
+Add skills they can teach
+Add skills they want to learn
+Create courses
+Enroll in courses
+Track learning progress
+Earn and spend SkillPoints
+Exchange skills directly with other users
+Book skill sessions
+Send and receive skill-exchange requests
+Review courses and users
+Receive notifications
+Build their reputation
 
 The backend provides secure REST APIs, business logic, authentication, authorization, MongoDB persistence, course management, SkillPoints, wallet records, payments, skill exchange, reviews, notifications, and Admin operations.
 
----
-
-# 🎯 Project Goals
-
-* Build a real-world peer-to-peer learning platform
-* Allow users to both teach and learn using one account
-* Provide skill-based matching and exchange
-* Support free, SkillPoint-based, and paid courses
-* Implement secure JWT authentication
-* Build an auditable SkillPoint and wallet system
-* Provide scalable REST APIs
-* Practice professional Git/GitHub collaboration
-* Build a modern React frontend after completing the backend
-* Deploy the complete application
-
----
-
-# 🛠️ Tech Stack
-
-## Backend
-
-* Java 21
-* Spring Boot 3.x
-* Spring Web / REST
-* Spring Security
-* JWT Authentication
-* Spring Data MongoDB
-* MongoDB Atlas / Local MongoDB
-* Maven
-* Bean Validation
-* Lombok
-
-## Frontend
-
-* React
-* Vite
-* JavaScript
-* Axios
-* React Router
-* Tailwind CSS
-
-## API & Testing
-
-* Swagger / OpenAPI
-* Postman
-* JUnit
-* Mockito
-
-## DevOps / Tools
-
-* Git
-* GitHub
-* Docker
-* MongoDB Atlas
-* Optional MinIO / Cloud Object Storage
-
----
-
-# 🏗️ System Architecture
-
-```text
+🎯 Project Goals
+Build a real-world peer-to-peer learning platform
+Allow users to both teach and learn using one account
+Provide skill-based matching and exchange
+Support free, SkillPoint-based, and paid courses
+Implement secure JWT authentication
+Build an auditable SkillPoint and wallet system
+Provide scalable REST APIs
+Practice professional Git/GitHub collaboration
+Build a modern React frontend after completing the backend
+Deploy the complete application
+🛠️ Tech Stack
+Backend
+Java 21
+Spring Boot 3.x
+Spring Web / REST
+Spring Security
+JWT Authentication
+Spring Data MongoDB
+MongoDB Atlas / Local MongoDB
+Maven
+Bean Validation
+Lombok
+Frontend
+React
+Vite
+JavaScript
+Axios
+React Router
+Tailwind CSS
+API & Testing
+Swagger / OpenAPI
+Postman
+JUnit
+Mockito
+DevOps / Tools
+Git
+GitHub
+Docker
+MongoDB Atlas
+Optional MinIO / Cloud Object Storage
+🏗️ System Architecture
                          ┌───────────────────┐
                          │   React Frontend  │
                          └─────────┬─────────┘
@@ -122,28 +127,22 @@ The backend provides secure REST APIs, business logic, authentication, authoriza
                                              ┌─────▼──────┐
                                              │  MongoDB   │
                                              └────────────┘
-```
 
-The backend follows a **Controller → Service → Repository → MongoDB** architecture, with DTOs used for API requests and responses instead of exposing database documents directly.
+The backend follows a Controller → Service → Repository → MongoDB architecture, with DTOs used for API requests and responses instead of exposing database documents directly.
 
----
+👥 Team Collaboration
 
-# 👥 Team Collaboration
-
-This project is developed by **2 team members**.
+This project is developed by 2 team members.
 
 GitHub is used for:
 
-* Version control
-* Branch management
-* Pull Requests
-* Code reviews
-* Issue tracking
-* Team collaboration
-
-### Branch Strategy
-
-```text
+Version control
+Branch management
+Pull Requests
+Code reviews
+Issue tracking
+Team collaboration
+Branch Strategy
 main
  │
  └── develop
@@ -161,170 +160,164 @@ main
       ├── feature/reviews                ✅ merged
       ├── feature/skill-exchange         ✅ merged
       └── feature/skill-sessions         ✅ merged
-```
+Git Rules
+main → stable production-ready code
+develop → integration branch
+feature/* → individual feature development
+No direct push to main
+Features are merged through Pull Requests
+Pull Requests should be reviewed before merging
+Pull from develop before starting new work
+🗺️ Development Roadmap
 
-### Git Rules
+The project follows a backend-first development strategy.
 
-* `main` → stable production-ready code
-* `develop` → integration branch
-* `feature/*` → individual feature development
-* No direct push to `main`
-* Features are merged through Pull Requests
-* Pull Requests should be reviewed before merging
-* Pull from `develop` before starting new work
+Current status: Phases 1–15 are complete.
+The backend now includes authentication, user profiles, skills, categories, courses, course content, discovery, enrollment, learning progress, certificates, SkillPoints, wallet/payment functionality, reviews, skill exchange, and skill sessions.
 
----
+Phase 1 — Project Initialization ⚙️ ✅
+Tasks
 
-# 🗺️ Development Roadmap
+Create GitHub repository
 
-The project follows a **backend-first development strategy**.
+Add teammate as collaborator
 
-> **Current status: Phases 1–15 are complete.**
-> The backend now includes authentication, user profiles, skills, categories, courses, course content, discovery, enrollment, learning progress, certificates, SkillPoints, wallet/payment functionality, reviews, skill exchange, and skill sessions.
+Create develop branch
 
----
+Create Spring Boot project
 
-# Phase 1 — Project Initialization ⚙️ ✅
+Configure Maven
 
-### Tasks
+Add dependencies
 
-* [x] Create GitHub repository
-* [x] Add teammate as collaborator
-* [x] Create `develop` branch
-* [x] Create Spring Boot project
-* [x] Configure Maven
-* [x] Add dependencies
-* [x] Create package structure
-* [x] Configure environment variables
-* [x] Create `.gitignore`
+Create package structure
 
-### Branch
+Configure environment variables
 
-```text
+Create .gitignore
+
+Branch
 feature/project-setup
-```
+Phase 2 — MongoDB Configuration 🗄️ ✅
+Tasks
 
----
+Configure MongoDB
 
-# Phase 2 — MongoDB Configuration 🗄️ ✅
+Create database
 
-### Tasks
+Configure MongoDB connection
 
-* [x] Configure MongoDB
-* [x] Create database
-* [x] Configure MongoDB connection
-* [x] Configure MongoDB repositories
-* [x] Add indexes where required
-* [x] Test database connection
+Configure MongoDB repositories
 
-### Branch
+Add indexes where required
 
-```text
+Test database connection
+
+Branch
 feature/project-setup
-```
 
 MongoDB is the primary application database.
 
----
+Phase 3 — Common Backend Infrastructure 🧩 ✅
+Tasks
 
-# Phase 3 — Common Backend Infrastructure 🧩 ✅
+DTO structure
 
-### Tasks
+Common API response
 
-* [x] DTO structure
-* [x] Common API response
-* [x] Error response structure
-* [x] Global exception handler
-* [x] Validation
-* [x] Custom exceptions
-* [x] Common configuration
-* [x] Logging
+Error response structure
 
-### Branch
+Global exception handler
 
-```text
+Validation
+
+Custom exceptions
+
+Common configuration
+
+Logging
+
+Branch
 feature/project-setup
-```
+Phase 4 — Authentication & Authorization 🔐 ✅
+Features
 
----
+User registration
 
-# Phase 4 — Authentication & Authorization 🔐 ✅
+User login
 
-### Features
+BCrypt password hashing
 
-* [x] User registration
-* [x] User login
-* [x] BCrypt password hashing
-* [x] JWT access token
-* [x] JWT validation
-* [x] Spring Security configuration
-* [x] Role-based authorization
-* [x] Logout strategy
-* [x] Forgot password
-* [x] Reset password
-* [x] `/me` endpoint
+JWT access token
 
-### Roles
+JWT validation
 
-```text
+Spring Security configuration
+
+Role-based authorization
+
+Logout strategy
+
+Forgot password
+
+Reset password
+
+/me endpoint
+
+Roles
 USER
 ADMIN
-```
 
-A single `USER` account can both create courses and enroll in courses.
+A single USER account can both create courses and enroll in courses.
 
-### Branch
-
-```text
+Branch
 feature/auth-service
-```
-
-### APIs
-
-```text
+APIs
 POST /api/auth/register
 POST /api/auth/login
 POST /api/auth/forgot-password
 POST /api/auth/reset-password
 GET  /api/auth/me
-```
+Phase 5 — User Profile & Skills 👤 ✅
+User Profile
 
----
+User profile
 
-# Phase 5 — User Profile & Skills 👤 ✅
+Update profile
 
-## User Profile
+Profile image reference
 
-* [x] User profile
-* [x] Update profile
-* [x] Profile image reference
-* [x] Bio
-* [x] Location
-* [x] Experience level
-* [x] Account status
-* [x] Timestamps
+Bio
 
-## Skill Management
+Location
 
-* [x] Create/manage skills
-* [x] Add teaching skills
-* [x] Add learning interests
-* [x] Remove skills
-* [x] Prevent duplicate relationships
-* [x] Skill categories
-* [x] Skill levels
+Experience level
 
-The user-skill relationship supports `CAN_TEACH` and `WANTS_TO_LEARN`.
+Account status
 
-### Branch
+Timestamps
 
-```text
+Skill Management
+
+Create/manage skills
+
+Add teaching skills
+
+Add learning interests
+
+Remove skills
+
+Prevent duplicate relationships
+
+Skill categories
+
+Skill levels
+
+The user-skill relationship supports CAN_TEACH and WANTS_TO_LEARN.
+
+Branch
 feature/profile-skills
-```
-
-### APIs
-
-```text
+APIs
 GET    /api/users/{id}
 PUT    /api/users/me
 GET    /api/users/me/skills
@@ -333,61 +326,58 @@ DELETE /api/users/me/skills/{skillId}
 
 GET    /api/skills
 GET    /api/categories
-```
-
----
-
-# Phase 6 — Course Management 📚 ✅
+Phase 6 — Course Management 📚 ✅
 
 Users can create courses that other users can learn from.
 
-### Course Types
-
-```text
+Course Types
 FREE
 SKILLPOINT
 PAID
-```
+Features
 
-### Features
+Create course
 
-* [x] Create course
-* [x] Update course
-* [x] Delete course
-* [x] Course description
-* [x] Category
-* [x] Skills
-* [x] Difficulty
-* [x] Language
-* [x] Duration
-* [x] Learning objectives
-* [x] Prerequisites
-* [x] Thumbnail reference
-* [x] Course status
-* [x] Publish course
-* [x] Archive course
+Update course
 
-### Course Lifecycle
+Delete course
 
-```text
+Course description
+
+Category
+
+Skills
+
+Difficulty
+
+Language
+
+Duration
+
+Learning objectives
+
+Prerequisites
+
+Thumbnail reference
+
+Course status
+
+Publish course
+
+Archive course
+
+Course Lifecycle
 DRAFT
   ↓
 PUBLISHED
   ↓
 ARCHIVED
-```
 
 Only published courses can be enrolled in, and only the course creator can modify their own course.
 
-### Branch
-
-```text
+Branch
 feature/courses
-```
-
-### APIs
-
-```text
+APIs
 POST   /api/courses
 GET    /api/courses
 GET    /api/courses/{id}
@@ -396,242 +386,223 @@ DELETE /api/courses/{id}
 
 POST /api/courses/{id}/publish
 POST /api/courses/{id}/archive
-```
+Phase 7 — Course Lessons & Resources 📖 ✅
+Features
 
----
+Create lessons
 
-# Phase 7 — Course Lessons & Resources 📖 ✅
+Update lessons
 
-### Features
+Delete lessons
 
-* [x] Create lessons
-* [x] Update lessons
-* [x] Delete lessons
-* [x] Lesson ordering
-* [x] Lesson content
-* [x] Video reference
-* [x] PDF/resource reference
-* [x] Published status
-* [ ] Optional quizzes/assignments
+Lesson ordering
+
+Lesson content
+
+Video reference
+
+PDF/resource reference
+
+Published status
+
+Optional quizzes/assignments
 
 Large files should use object storage such as MinIO or cloud storage instead of being stored directly inside MongoDB.
 
-### Branch
-
-```text
+Branch
 feature/course-content
-```
-
-### APIs
-
-```text
+APIs
 POST   /api/courses/{courseId}/lessons
 GET    /api/courses/{courseId}/lessons
 PUT    /api/courses/{courseId}/lessons/{lessonId}
 DELETE /api/courses/{courseId}/lessons/{lessonId}
 PUT    /api/courses/{courseId}/lessons/{lessonId}/reorder
 POST   /api/courses/{courseId}/lessons/{lessonId}/publish
-```
+Phase 8 — Course Discovery 🔎 ✅
+Features
 
----
+Search courses
 
-# Phase 8 — Course Discovery 🔎 ✅
+Search by skill
 
-### Features
+Search by category
 
-* [x] Search courses
-* [x] Search by skill
-* [x] Search by category
-* [x] Search by creator
-* [x] Filter by course type
-* [x] Filter by price
-* [x] Filter by rating
-* [x] Filter by difficulty
-* [x] Filter by language
-* [x] Filter by duration
-* [x] Sorting
-* [x] Pagination
+Search by creator
 
-### Branch
+Filter by course type
 
-```text
+Filter by price
+
+Filter by rating
+
+Filter by difficulty
+
+Filter by language
+
+Filter by duration
+
+Sorting
+
+Pagination
+
+Branch
 feature/course-discovery
-```
-
-### API
-
-```text
+API
 GET /api/courses/search
-```
+Phase 9 — Enrollment & Learning Progress 🎓 ✅
+Enrollment
 
----
+Free course enrollment
 
-# Phase 9 — Enrollment & Learning Progress 🎓 ✅
+SkillPoint course enrollment
 
-## Enrollment
+Paid course enrollment
 
-* [x] Free course enrollment
-* [x] SkillPoint course enrollment
-* [x] Paid course enrollment
-* [x] Prevent duplicate enrollment
-* [x] Enrollment status
-* [x] Enrollment timestamps
+Prevent duplicate enrollment
 
-## Learning Progress
+Enrollment status
 
-* [x] Track completed lessons
-* [x] Calculate progress
-* [x] Detect course completion
-* [x] Track quiz/assignment results
-* [x] Certificate eligibility
+Enrollment timestamps
 
-### Branch
+Learning Progress
 
-```text
+Track completed lessons
+
+Calculate progress
+
+Detect course completion
+
+Track quiz/assignment results
+
+Certificate eligibility
+
+Branch
 feature/enrollment
-```
+Phase 10 — Certificates 🏆 ✅
+Features
 
----
+Generate certificate ID
 
-# Phase 10 — Certificates 🏆 ✅
+Store certificate metadata
 
-### Features
+Associate certificate with user/course
 
-* [x] Generate certificate ID
-* [x] Store certificate metadata
-* [x] Associate certificate with user/course
-* [x] Store completion date
-* [x] Optional PDF certificate
-* [x] Certificate verification
+Store completion date
 
-### Branch
+Optional PDF certificate
 
-```text
+Certificate verification
+
+Branch
 feature/certificates
-```
-
----
-
-# Phase 11 — SkillPoints 💎 ✅
+Phase 11 — SkillPoints 💎 ✅
 
 SkillPoints are the internal reward currency of SkillSwap.
 
-### Earning
-
-```text
+Earning
 Teaching Reward
 Course Contribution
 Community Contribution
 Challenges / Rewards
-```
-
-### Spending
-
-```text
+Spending
 SkillPoint Course Enrollment
 Eligible Skill Sessions
 Platform Activities
-```
+Features
 
-### Features
+SkillPoint balance
 
-* [x] SkillPoint balance
-* [x] Credit transaction
-* [x] Debit transaction
-* [x] Transaction history
-* [x] Prevent negative balance
-* [x] Atomic balance updates
-* [x] Idempotency protection
+Credit transaction
+
+Debit transaction
+
+Transaction history
+
+Prevent negative balance
+
+Atomic balance updates
+
+Idempotency protection
 
 Every SkillPoint change is recorded as a transaction.
 
-### Branch
-
-```text
+Branch
 feature/skillpoints
-```
-
-### APIs
-
-```text
+APIs
 GET /api/me/skillpoints
 GET /api/me/skillpoints/transactions
-```
+Phase 12 — Wallet, Orders & Payments 💰 ✅
+Wallet
 
----
+Creator wallet
 
-# Phase 12 — Wallet, Orders & Payments 💰 ✅
+Pending earnings
 
-## Wallet
+Available earnings
 
-* [x] Creator wallet
-* [x] Pending earnings
-* [x] Available earnings
-* [x] Wallet transactions
-* [x] Platform commission
+Wallet transactions
 
-## Orders
+Platform commission
 
-* [x] Create order
-* [x] Unique order ID
-* [x] Order status
-* [x] Order history
+Orders
 
-## Payments
+Create order
 
-* [x] Create payment
-* [x] Verify payment
-* [x] Handle successful payment
-* [x] Handle failed payment
-* [x] Handle cancelled payment
-* [x] Prevent duplicate payment callbacks
-* [x] Test/sandbox payment integration
+Unique order ID
 
-### Branch
+Order status
 
-```text
+Order history
+
+Payments
+
+Create payment
+
+Verify payment
+
+Handle successful payment
+
+Handle failed payment
+
+Handle cancelled payment
+
+Prevent duplicate payment callbacks
+
+Test/sandbox payment integration
+
+Branch
 feature/wallet-payment
-```
+Phase 13 — Reviews & Ratings ⭐ ✅
+Features
 
----
+Course reviews
 
-# Phase 13 — Reviews & Ratings ⭐ ✅
+Session reviews
 
-### Features
+Rating from 1–5
 
-* [x] Course reviews
-* [x] Session reviews
-* [x] Rating from 1–5
-* [x] Written review
-* [x] Prevent unauthorized reviews
-* [x] Prevent duplicate reviews
-* [x] Review reporting
-* [x] Rating aggregation
+Written review
 
-### Branch
+Prevent unauthorized reviews
 
-```text
+Prevent duplicate reviews
+
+Review reporting
+
+Rating aggregation
+
+Branch
 feature/reviews
-```
-
-### APIs
-
-```text
+APIs
 POST   /api/courses/{id}/reviews
 GET    /api/courses/{id}/reviews
 PUT    /api/reviews/{id}
 DELETE /api/reviews/{id}
-```
-
----
-
-# Phase 14 — Skill Exchange & Matching 🤝 ✅
+Phase 14 — Skill Exchange & Matching 🤝 ✅
 
 This is one of the core features of SkillSwap.
 
-### Example
-
-```text
+Example
 User A
 
 CAN_TEACH:
@@ -652,33 +623,35 @@ Java
           ↓
 
    Potential Match 🤝
-```
+Features
 
-### Features
+Find compatible users
 
-* [x] Find compatible users
-* [x] Rule-based matching
-* [x] Match teaching skills with learning interests
-* [x] Match reciprocal requirements
-* [x] Calculate compatibility
-* [x] Send exchange request
-* [x] Accept request
-* [x] Reject request
-* [x] Cancel request
-* [x] Complete exchange
-* [x] Review after completion
+Rule-based matching
+
+Match teaching skills with learning interests
+
+Match reciprocal requirements
+
+Calculate compatibility
+
+Send exchange request
+
+Accept request
+
+Reject request
+
+Cancel request
+
+Complete exchange
+
+Review after completion
 
 The MVP uses rule-based matching.
 
-### Branch
-
-```text
+Branch
 feature/skill-exchange
-```
-
-### APIs
-
-```text
+APIs
 GET  /api/skill-exchange/matches
 POST /api/skill-exchange/requests
 GET  /api/skill-exchange/requests
@@ -687,209 +660,191 @@ PUT /api/skill-exchange/requests/{id}/accept
 PUT /api/skill-exchange/requests/{id}/reject
 
 PUT /api/skill-exchange/{id}/complete
-```
+Phase 15 — Skill Sessions 📅 ✅
+Features
 
----
+Create skill session
 
-# Phase 15 — Skill Sessions 📅 ✅
+Set skill
 
-### Features
+Session description
 
-* [x] Create skill session
-* [x] Set skill
-* [x] Session description
-* [x] Duration
-* [x] Availability
-* [x] Price / SkillPoint cost
-* [x] Browse sessions
-* [x] Book session
-* [x] Verify payment/SkillPoints
-* [x] Track booking
-* [x] Complete session
-* [x] Review session
+Duration
 
-### Branch
+Availability
 
-```text
+Price / SkillPoint cost
+
+Browse sessions
+
+Book session
+
+Verify payment/SkillPoints
+
+Track booking
+
+Complete session
+
+Review session
+
+Branch
 feature/skill-sessions
-```
+Phase 16 — Wishlist ❤️
 
----
+Status: ⏳ Planned
 
-# Phase 16 — Wishlist ❤️
+Features
 
-**Status: ⏳ Planned**
+Add course to wishlist
 
-### Features
+Remove course
 
-* [ ] Add course to wishlist
-* [ ] Remove course
-* [ ] View wishlist
-* [ ] Prevent duplicate wishlist entries
+View wishlist
 
-### Branch
+Prevent duplicate wishlist entries
 
-```text
+Branch
 feature/wishlist
-```
+Phase 17 — Notifications 🔔
 
----
-
-# Phase 17 — Notifications 🔔
-
-**Status: ⏳ Planned**
+Status: ⏳ Planned
 
 Notifications will be generated for important platform events.
 
-### Events
+Events
+Course enrollment
+New learner enrollment
+Course completion
+New review
+SkillPoints earned/spent
+Payment received
+Skill exchange request
+Exchange response
+Session booking
+Admin actions
+Features
 
-* Course enrollment
-* New learner enrollment
-* Course completion
-* New review
-* SkillPoints earned/spent
-* Payment received
-* Skill exchange request
-* Exchange response
-* Session booking
-* Admin actions
+Create notification
 
-### Features
+Get notifications
 
-* [ ] Create notification
-* [ ] Get notifications
-* [ ] Read notification
-* [ ] Mark all as read
-* [ ] Server-side read/unread status
+Read notification
 
-### Branch
+Mark all as read
 
-```text
+Server-side read/unread status
+
+Branch
 feature/notifications
-```
+Phase 18 — Admin Management 🛡️
 
----
+Status: ⏳ Planned
 
-# Phase 18 — Admin Management 🛡️
+Admin Features
 
-**Status: ⏳ Planned**
+Manage users
 
-### Admin Features
+Suspend users
 
-* [ ] Manage users
-* [ ] Suspend users
-* [ ] Reactivate users
-* [ ] Manage courses
-* [ ] Manage skills/categories
-* [ ] Monitor transactions
-* [ ] Manage reports
-* [ ] Moderate content
-* [ ] View platform statistics
-* [ ] Course approval/rejection
+Reactivate users
 
-### Branch
+Manage courses
 
-```text
+Manage skills/categories
+
+Monitor transactions
+
+Manage reports
+
+Moderate content
+
+View platform statistics
+
+Course approval/rejection
+
+Branch
 feature/admin
-```
+Phase 19 — Reports & Moderation 🚨
 
----
-
-# Phase 19 — Reports & Moderation 🚨
-
-**Status: ⏳ Planned**
+Status: ⏳ Planned
 
 Users can report:
 
-```text
 User
 Course
 Review
 Session
 Content
-```
-
-### Report Data
-
-* Reporter
-* Target
-* Reason
-* Description
-* Status
-* Timestamps
-
-### Branch
-
-```text
+Report Data
+Reporter
+Target
+Reason
+Description
+Status
+Timestamps
+Branch
 feature/moderation
-```
+Phase 20 — Advanced Messaging 💬
 
----
+Status: ⏳ Planned
 
-# Phase 20 — Advanced Messaging 💬
+Features
 
-**Status: ⏳ Planned**
+Create conversations
 
-### Features
+Retrieve conversations
 
-* [ ] Create conversations
-* [ ] Retrieve conversations
-* [ ] Send messages
-* [ ] Retrieve messages
-* [ ] Unread message count
-* [ ] Conversation authorization
-* [ ] WebSocket support
+Send messages
 
-### Branch
+Retrieve messages
 
-```text
+Unread message count
+
+Conversation authorization
+
+WebSocket support
+
+Branch
 feature/messaging
-```
+Phase 21 — Testing 🧪
 
----
+Status: ⏳ Planned
 
-# Phase 21 — Testing 🧪
+Unit Testing
 
-**Status: ⏳ Planned**
+Service tests
 
-## Unit Testing
+Controller tests
 
-* [ ] Service tests
-* [ ] Controller tests
-* [ ] Repository tests
-* [ ] Security tests
+Repository tests
 
-## Integration Testing
+Security tests
 
-* [ ] Authentication workflow
-* [ ] Course workflow
-* [ ] Enrollment workflow
-* [ ] SkillPoint transactions
-* [ ] Payment workflow
-* [ ] Skill exchange workflow
-* [ ] Admin authorization
+Integration Testing
 
-### Branch
+Authentication workflow
 
-```text
+Course workflow
+
+Enrollment workflow
+
+SkillPoint transactions
+
+Payment workflow
+
+Skill exchange workflow
+
+Admin authorization
+
+Branch
 feature/testing
-```
-
----
-
-# Phase 22 — Swagger / OpenAPI 📚 ✅
+Phase 22 — Swagger / OpenAPI 📚 ✅
 
 Document all REST APIs.
 
-### Swagger
-
-```text
+Swagger
 http://localhost:8080/swagger-ui/index.html
-```
-
-### API Groups
-
-```text
+API Groups
 Authentication ✅
 Users ✅
 Skills ✅
@@ -907,19 +862,13 @@ Skill Exchange ✅
 Skill Sessions ✅
 Notifications ⏳
 Admin ⏳
-```
+🎨 Phase 23 — Frontend Development
 
----
+Status: ⏳ Planned
 
-# 🎨 Phase 23 — Frontend Development
+Backend development through Phase 15 is complete. Frontend development will follow.
 
-**Status: ⏳ Planned**
-
-Backend development through **Phase 15 is complete**. Frontend development will follow.
-
-### Frontend Modules
-
-```text
+Frontend Modules
 frontend/
 │
 ├── Authentication
@@ -938,62 +887,73 @@ frontend/
 ├── Notifications
 ├── Reviews
 └── Admin Dashboard
-```
+🔗 Phase 24 — Frontend & Backend Integration
 
----
+Status: ⏳ Planned
 
-# 🔗 Phase 24 — Frontend & Backend Integration
+Tasks
 
-**Status: ⏳ Planned**
+Configure Axios
 
-### Tasks
+Connect authentication APIs
 
-* [ ] Configure Axios
-* [ ] Connect authentication APIs
-* [ ] JWT handling
-* [ ] Connect profile APIs
-* [ ] Connect skills APIs
-* [ ] Connect course APIs
-* [ ] Connect enrollment APIs
-* [ ] Connect SkillPoint APIs
-* [ ] Connect wallet/payment APIs
-* [ ] Connect matching APIs
-* [ ] Connect exchange APIs
-* [ ] Connect session APIs
-* [ ] Connect notification APIs
-* [ ] Connect Admin APIs
-* [ ] Handle API errors
-* [ ] Add loading states
+JWT handling
 
----
+Connect profile APIs
 
-# 🐳 Phase 25 — Docker & Deployment
+Connect skills APIs
 
-**Status: ⏳ Planned**
+Connect course APIs
 
-## Backend
+Connect enrollment APIs
 
-* [ ] Dockerfile
-* [ ] Environment variables
-* [ ] Production configuration
+Connect SkillPoint APIs
 
-## Database
+Connect wallet/payment APIs
 
-* [x] MongoDB Atlas
-* [ ] Production indexes
-* [x] Secure credentials
+Connect matching APIs
 
-## Frontend
+Connect exchange APIs
 
-* [ ] Production build
-* [ ] Environment configuration
-* [ ] Deploy frontend
+Connect session APIs
 
----
+Connect notification APIs
 
-# 📂 Backend Project Structure
+Connect Admin APIs
 
-```text
+Handle API errors
+
+Add loading states
+
+🐳 Phase 25 — Docker & Deployment
+
+Status: ⏳ Planned
+
+Backend
+
+Dockerfile
+
+Environment variables
+
+Production configuration
+
+Database
+
+MongoDB Atlas
+
+Production indexes
+
+Secure credentials
+
+Frontend
+
+Production build
+
+Environment configuration
+
+Deploy frontend
+
+📂 Backend Project Structure
 backend/
 └── src/
     └── main/
@@ -1016,13 +976,7 @@ backend/
         │
         └── resources/
             └── application.properties
-```
-
----
-
-# 🗄️ MongoDB Collections
-
-```text
+🗄️ MongoDB Collections
 users                         ✅
 skills                        ✅
 user_skills                   ✅
@@ -1053,71 +1007,35 @@ reports                       ⏳
 
 messages                      ⏳
 conversations                 ⏳
-```
-
----
-
-# 🔄 Git Workflow
-
-### 1. Start from develop
-
-```bash
+🔄 Git Workflow
+1. Start from develop
 git checkout develop
 git pull origin develop
-```
-
-### 2. Create feature branch
-
-```bash
+2. Create feature branch
 git checkout -b feature/feature-name
-```
-
-### 3. Work on the feature
-
-```bash
+3. Work on the feature
 git status
-```
-
-### 4. Commit
-
-```bash
+4. Commit
 git add .
 git commit -m "feat: add feature"
-```
-
-### 5. Push
-
-```bash
+5. Push
 git push -u origin feature/feature-name
-```
-
-### 6. Create Pull Request
-
-```text
+6. Create Pull Request
 feature/feature-name
         ↓
    Pull Request
         ↓
       develop
-```
-
-### 7. After testing
-
-```text
+7. After testing
 develop
    ↓
 Pull Request
    ↓
  main
-```
-
----
-
-# 📝 Commit Convention
+📝 Commit Convention
 
 Use clear conventional commits:
 
-```text
 feat: add user registration
 feat: implement JWT authentication
 feat: add skill management
@@ -1136,51 +1054,40 @@ test: add skill exchange tests
 
 refactor: improve matching service
 docs: update API documentation
-```
-
----
-
-# 📊 Project Milestones
-
-| Milestone            | Status |
-| -------------------- | ------ |
-| GitHub Setup         | ✅      |
-| Spring Boot Setup    | ✅      |
-| MongoDB Setup        | ✅      |
-| Common Configuration | ✅      |
-| Authentication       | ✅      |
-| User Profile         | ✅      |
-| Skill Management     | ✅      |
-| Categories           | ✅      |
-| Course Management    | ✅      |
-| Course Content       | ✅      |
-| Course Discovery     | ✅      |
-| Enrollment           | ✅      |
-| Learning Progress    | ✅      |
-| Certificates         | ✅      |
-| SkillPoints          | ✅      |
-| Wallet               | ✅      |
-| Orders & Payments    | ✅      |
-| Reviews              | ✅      |
-| Skill Matching       | ✅      |
-| Skill Exchange       | ✅      |
-| Skill Sessions       | ✅      |
-| Wishlist             | ⬜      |
-| Notifications        | ⬜      |
-| Admin                | ⬜      |
-| Moderation           | ⬜      |
-| Testing              | ⬜      |
-| Swagger              | ✅      |
-| Frontend             | ⬜      |
-| Integration          | ⬜      |
-| Docker               | ⬜      |
-| Deployment           | ⬜      |
-
----
-
-# 🚀 Complete Backend User Flow
-
-```text
+📊 Project Milestones
+Milestone	Status
+GitHub Setup	✅
+Spring Boot Setup	✅
+MongoDB Setup	✅
+Common Configuration	✅
+Authentication	✅
+User Profile	✅
+Skill Management	✅
+Categories	✅
+Course Management	✅
+Course Content	✅
+Course Discovery	✅
+Enrollment	✅
+Learning Progress	✅
+Certificates	✅
+SkillPoints	✅
+Wallet	✅
+Orders & Payments	✅
+Reviews	✅
+Skill Matching	✅
+Skill Exchange	✅
+Skill Sessions	✅
+Wishlist	⬜
+Notifications	⬜
+Admin	⬜
+Moderation	⬜
+Testing	⬜
+Swagger	✅
+Frontend	⬜
+Integration	⬜
+Docker	⬜
+Deployment	⬜
+🚀 Complete Backend User Flow
                     ┌──────────────┐
                     │   Register   │
                     └──────┬───────┘
@@ -1248,34 +1155,26 @@ docs: update API documentation
                      Complete Session
                              ↓
                           Review
-```
-
----
-
-# 🌟 Advanced Features
+🌟 Advanced Features
 
 The following features can be added after the core backend:
 
-* Real payment gateway
-* Creator payouts
-* One-to-one session booking enhancements
-* Real-time WebSocket messaging
-* MinIO object storage
-* AI course recommendations
-* AI skill-gap analysis
-* Advanced analytics
-* Gamification
-* Badges
-* Audit logs
-* Advanced moderation
+Real payment gateway
+Creator payouts
+One-to-one session booking enhancements
+Real-time WebSocket messaging
+MinIO object storage
+AI course recommendations
+AI skill-gap analysis
+Advanced analytics
+Gamification
+Badges
+Audit logs
+Advanced moderation
+✅ Backend Progress — Phase 15 Checkpoint
 
----
+The backend has now completed 15 development phases:
 
-# ✅ Backend Progress — Phase 15 Checkpoint
-
-The backend has now completed **15 development phases**:
-
-```text
 ✓ Spring Boot Setup
 ✓ MongoDB
 ✓ Common Backend Infrastructure
@@ -1293,11 +1192,7 @@ The backend has now completed **15 development phases**:
 ✓ Reviews & Ratings
 ✓ Skill Matching / Exchange
 ✓ Skill Sessions
-```
-
-### Current Backend Scope
-
-```text
+Current Backend Scope
 Authentication                 ✅
 User Profile                  ✅
 Skill Management              ✅
@@ -1325,10 +1220,1213 @@ Testing                       ⏳
 Frontend                      ⏳
 Integration                   ⏳
 Docker & Deployment           ⏳
-```
+📄 License
 
----
+This project is developed for educational, portfolio, and collaborative software-development purposes.
 
-# 📄 License
+This version is ready to copy directly into README.md.
 
-This project is developed for **educational, portfolio, and collaborative software-development purposes**.
+give tittle
+
+Use this title:
+
+Merge develop into main — Phase 15 Backend Complete
+
+Or a cleaner GitHub-style title:
+
+feat: merge Phase 15 backend development into main
+
+🤝 SkillSwap
+
+A peer-to-peer learning and skill-exchange platform where users can both teach and learn, create courses, exchange skills, earn SkillPoints, and build reputation.
+
+👨‍💻 Author
+
+Garvit Malik
+
+Shivika
+
+📌 About the Project
+
+SkillSwap is a full-stack peer-to-peer learning platform.
+
+Unlike traditional learning platforms, a single normal user account can act as both a learner and a teacher.
+
+Users can:
+
+Create and manage their profiles
+Add skills they can teach
+Add skills they want to learn
+Create courses
+Enroll in courses
+Track learning progress
+Earn and spend SkillPoints
+Exchange skills directly with other users
+Book skill sessions
+Send and receive skill-exchange requests
+Review courses and users
+Receive notifications
+Build their reputation
+
+The backend provides secure REST APIs, business logic, authentication, authorization, MongoDB persistence, course management, SkillPoints, wallet records, payments, skill exchange, reviews, notifications, and Admin operations.
+
+🎯 Project Goals
+Build a real-world peer-to-peer learning platform
+Allow users to both teach and learn using one account
+Provide skill-based matching and exchange
+Support free, SkillPoint-based, and paid courses
+Implement secure JWT authentication
+Build an auditable SkillPoint and wallet system
+Provide scalable REST APIs
+Practice professional Git/GitHub collaboration
+Build a modern React frontend after completing the backend
+Deploy the complete application
+🛠️ Tech Stack
+Backend
+Java 21
+Spring Boot 3.x
+Spring Web / REST
+Spring Security
+JWT Authentication
+Spring Data MongoDB
+MongoDB Atlas / Local MongoDB
+Maven
+Bean Validation
+Lombok
+Frontend
+React
+Vite
+JavaScript
+Axios
+React Router
+Tailwind CSS
+API & Testing
+Swagger / OpenAPI
+Postman
+JUnit
+Mockito
+DevOps / Tools
+Git
+GitHub
+Docker
+MongoDB Atlas
+Optional MinIO / Cloud Object Storage
+
+The backend specification defines Java 17, Spring Boot 3.x, Spring Security, JWT, Spring Data MongoDB, Maven, Bean Validation, and Git/GitHub as the core technology stack.
+
+🏗️ System Architecture
+                         ┌───────────────────┐
+                         │   React Frontend  │
+                         └─────────┬─────────┘
+                                   │
+                              HTTP / JSON
+                                   │
+                         ┌─────────▼─────────┐
+                         │   Spring Boot     │
+                         │    REST API       │
+                         └─────────┬─────────┘
+                                   │
+                ┌──────────────────┼──────────────────┐
+                │                  │                  │
+        ┌───────▼───────┐  ┌──────▼──────┐  ┌──────▼──────┐
+        │ Spring Security│  │ Controllers │  │   Services  │
+        │     + JWT      │  │             │  │             │
+        └───────────────┘  └─────────────┘  └──────┬──────┘
+                                                   │
+                                            ┌──────▼──────┐
+                                            │ Repositories│
+                                            └──────┬──────┘
+                                                   │
+                                            ┌──────▼──────┐
+                                            │   MongoDB   │
+                                            └─────────────┘
+
+The backend follows a Controller → Service → Repository → MongoDB architecture, with DTOs used for API requests and responses instead of exposing database documents directly.
+
+👥 Team Collaboration
+
+This project is developed by 2 team members.
+
+GitHub will be used for:
+
+Version control
+Branch management
+Pull Requests
+Code reviews
+Issue tracking
+Team collaboration
+Branch Strategy
+main
+ │
+ └── develop
+      │
+      ├── feature/project-setup      ✅ merged
+      ├── feature/auth-service       ✅ merged
+      ├── feature/profile-skills     ✅ merged
+      ├── feature/categories
+      ├── feature/courses
+      ├── feature/course-content
+      ├── feature/course-discovery
+      ├── feature/enrollment
+      ├── feature/skillpoints
+      ├── feature/wallet-payment
+      ├── feature/reviews
+      ├── feature/skill-exchange
+      ├── feature/notifications
+      ├── feature/admin
+      └── feature/testing-docs
+Git Rules
+main → stable production-ready code
+develop → integration branch
+feature/* → individual feature development
+No direct push to main
+Features are merged through Pull Requests
+Pull Requests should be reviewed before merging
+Pull from develop before starting new work
+🗺️ Development Roadmap
+
+The project follows a backend-first development strategy. The backend development order is based on the SkillSwap Backend PRD.
+
+Current status: Phases 1–10 complete and merged into main (MVP checkpoint: project setup, JWT authentication, user profile & skills, categories, course management, course content, course discovery, enrollment, learning progress, certificates). Phase 11 (SkillPoints) is next.
+
+Phase 1 — Project Initialization ⚙️ ✅
+Tasks
+
+Create GitHub repository
+
+Add teammate as collaborator
+
+Create develop branch
+
+Create Spring Boot project
+
+Configure Maven
+
+Add dependencies
+
+Create package structure
+
+Configure environment variables
+
+Create .gitignore
+
+Branch
+feature/project-setup
+Phase 2 — MongoDB Configuration 🗄️ ✅
+Tasks
+
+Configure MongoDB
+
+Create database
+
+Configure MongoDB connection
+
+Configure MongoDB repositories
+
+Add indexes where required
+
+Test database connection
+
+Branch
+feature/project-setup
+
+MongoDB is the primary application database, with indexes planned for frequently searched fields and common access patterns.
+
+Phase 3 — Common Backend Infrastructure 🧩 ✅
+Tasks
+
+DTO structure
+
+Common API response
+
+Error response structure
+
+Global exception handler
+
+Validation
+
+Custom exceptions
+
+Common configuration
+
+Logging
+
+Branch
+feature/project-setup
+Phase 4 — Authentication & Authorization 🔐 ✅
+Features
+
+User registration
+
+User login
+
+BCrypt password hashing
+
+JWT access token
+
+JWT validation
+
+Spring Security configuration
+
+Role-based authorization
+
+Logout strategy
+
+Forgot password
+
+Reset password
+
+/me endpoint
+
+Roles
+USER
+ADMIN
+
+A single USER account can both create courses and enroll in courses; a separate STUDENT or INSTRUCTOR role is not required.
+
+Branch
+feature/auth-service
+APIs
+POST /api/auth/register
+POST /api/auth/login
+POST /api/auth/forgot-password
+POST /api/auth/reset-password
+GET  /api/auth/me
+Phase 5 — User Profile & Skills 👤 ✅
+User Profile
+
+User profile
+
+Update profile
+
+Profile image reference
+
+Bio
+
+Location
+
+Experience level
+
+Account status
+
+Timestamps
+
+Skill Management
+
+Create/manage skills
+
+Add teaching skills
+
+Add learning interests
+
+Remove skills
+
+Prevent duplicate relationships
+
+Skill categories
+
+Skill levels
+
+The PRD defines user relationships with skills using CAN_TEACH and WANTS_TO_LEARN.
+
+Branch
+feature/profile-skills
+APIs
+GET    /api/users/{id}
+PUT    /api/users/me
+GET    /api/users/me/skills
+POST   /api/users/me/skills
+DELETE /api/users/me/skills/{skillId}
+
+GET    /api/skills
+GET    /api/categories
+Phase 6 — Course Management 📚 ✅
+
+Users can create courses that other users can learn from.
+
+Course Types
+FREE
+SKILLPOINT
+PAID
+Features
+
+Create course
+
+Update course
+
+Delete course
+
+Course description
+
+Category
+
+Skills
+
+Difficulty
+
+Language
+
+Duration
+
+Learning objectives
+
+Prerequisites
+
+Thumbnail reference
+
+Course status
+
+Publish course
+
+Archive course
+
+Course Lifecycle
+DRAFT
+  ↓
+PUBLISHED
+  ↓
+ARCHIVED
+
+Only published courses can be enrolled in, and only the course creator can modify their own course.
+
+Branch
+feature/courses
+APIs
+POST   /api/courses
+GET    /api/courses
+GET    /api/courses/{id}
+PUT    /api/courses/{id}
+DELETE /api/courses/{id}
+
+POST /api/courses/{id}/publish
+POST /api/courses/{id}/archive
+Phase 7 — Course Lessons & Resources 📖 ✅
+Features
+
+Create lessons
+
+Update lessons
+
+Delete lessons
+
+Lesson ordering
+
+Lesson content
+
+Video reference
+
+PDF/resource reference
+
+Published status
+
+Optional quizzes/assignments
+
+Large files should use object storage such as MinIO or cloud storage instead of being stored directly inside MongoDB.
+
+Branch
+feature/course-content
+APIs
+POST   /api/courses/{courseId}/lessons
+GET    /api/courses/{courseId}/lessons
+PUT    /api/courses/{courseId}/lessons/{lessonId}
+DELETE /api/courses/{courseId}/lessons/{lessonId}
+PUT    /api/courses/{courseId}/lessons/{lessonId}/reorder
+POST   /api/courses/{courseId}/lessons/{lessonId}/publish
+Phase 8 — Course Discovery 🔎 ✅
+Features
+
+Search courses
+
+Search by skill
+
+Search by category
+
+Search by creator
+
+Filter by course type
+
+Filter by price
+
+Filter by rating
+
+Filter by difficulty
+
+Filter by language
+
+Filter by duration
+
+Sorting
+
+Pagination
+
+Branch
+feature/course-discovery
+
+The backend specification explicitly requires search, filtering, sorting, and pagination for course discovery.
+
+APIs
+GET /api/courses/search
+Phase 9 — Enrollment & Learning Progress 🎓 ✅
+Enrollment
+
+Free course enrollment
+
+SkillPoint course enrollment
+
+Paid course enrollment
+
+Prevent duplicate enrollment
+
+Enrollment status
+
+Enrollment timestamps
+
+Learning Progress
+
+Track completed lessons
+
+Calculate progress
+
+Detect course completion
+
+Track quiz/assignment results
+
+Certificate eligibility
+
+Branch
+feature/enrollment
+
+For SkillPoint and paid courses, the backend must verify the required transaction before granting course access.
+
+Phase 10 — Certificates 🏆 ✅
+Features
+
+Generate certificate ID
+
+Store certificate metadata
+
+Associate certificate with user/course
+
+Store completion date
+
+Optional PDF certificate
+
+Optional certificate verification
+
+Branch
+feature/certificates
+Phase 11 — SkillPoints 💎
+
+SkillPoints are the internal reward currency of SkillSwap.
+
+Earning
+Teaching Reward
+Course Contribution
+Community Contribution
+Challenges / Rewards
+Spending
+SkillPoint Course Enrollment
+Eligible Skill Sessions
+Platform Activities
+Features
+
+SkillPoint balance
+
+Credit transaction
+
+Debit transaction
+
+Transaction history
+
+Prevent negative balance
+
+Atomic balance updates
+
+Idempotency protection
+
+Every SkillPoint change must be recorded as a transaction rather than simply overwriting the balance.
+
+Branch
+feature/skillpoints
+APIs
+GET /api/me/skillpoints
+GET /api/me/skillpoints/transactions
+Phase 12 — Wallet, Orders & Payments 💰
+Wallet
+
+Creator wallet
+
+Pending earnings
+
+Available earnings
+
+Wallet transactions
+
+Platform commission
+
+Orders
+
+Create order
+
+Unique order ID
+
+Order status
+
+Order history
+
+Payments
+
+Create payment
+
+Verify payment
+
+Handle successful payment
+
+Handle failed payment
+
+Handle cancelled payment
+
+Prevent duplicate payment callbacks
+
+Test/sandbox payment integration
+
+Branch
+feature/wallet-payment
+
+The PRD requires server-side payment verification and enrollment only after successful payment.
+
+Phase 13 — Reviews & Ratings ⭐
+Features
+
+Course reviews
+
+Session reviews
+
+Rating from 1–5
+
+Written review
+
+Prevent unauthorized reviews
+
+Prevent duplicate reviews
+
+Review reporting
+
+Rating aggregation
+
+Branch
+feature/reviews
+APIs
+POST   /api/courses/{id}/reviews
+GET    /api/courses/{id}/reviews
+PUT    /api/reviews/{id}
+DELETE /api/reviews/{id}
+Phase 14 — Skill Exchange & Matching 🤝
+
+This is one of the core features of SkillSwap.
+
+Example
+User A
+
+CAN_TEACH:
+Java
+
+WANTS_TO_LEARN:
+UI/UX
+
+
+User B
+
+CAN_TEACH:
+UI/UX
+
+WANTS_TO_LEARN:
+Java
+
+          ↓
+
+   Potential Match 🤝
+Features
+
+Find compatible users
+
+Rule-based matching
+
+Match teaching skills with learning interests
+
+Match reciprocal requirements
+
+Calculate compatibility
+
+Send exchange request
+
+Accept request
+
+Reject request
+
+Cancel request
+
+Complete exchange
+
+Review after completion
+
+The MVP uses rule-based matching; optional factors include experience, language, availability, and rating.
+
+Branch
+feature/skill-exchange
+APIs
+GET  /api/skill-exchange/matches
+POST /api/skill-exchange/requests
+GET  /api/skill-exchange/requests
+
+PUT /api/skill-exchange/requests/{id}/accept
+PUT /api/skill-exchange/requests/{id}/reject
+
+PUT /api/skill-exchange/{id}/complete
+Phase 15 — Skill Sessions 📅
+Features
+
+Create skill session
+
+Set skill
+
+Session description
+
+Duration
+
+Availability
+
+Price / SkillPoint cost
+
+Browse sessions
+
+Book session
+
+Verify payment/SkillPoints
+
+Track booking
+
+Complete session
+
+Review session
+
+Branch
+feature/skill-sessions
+Phase 16 — Wishlist ❤️
+Features
+
+Add course to wishlist
+
+Remove course
+
+View wishlist
+
+Prevent duplicate wishlist entries
+
+Branch
+feature/wishlist
+Phase 17 — Notifications 🔔
+
+Notifications will be generated for important platform events.
+
+Events
+Course enrollment
+New learner enrollment
+Course completion
+New review
+SkillPoints earned/spent
+Payment received
+Skill exchange request
+Exchange response
+Session booking
+Admin actions
+Features
+
+Create notification
+
+Get notifications
+
+Read notification
+
+Mark all as read
+
+Server-side read/unread status
+
+Branch
+feature/notifications
+APIs
+GET /api/notifications
+
+PUT /api/notifications/{id}/read
+PUT /api/notifications/read-all
+Phase 18 — Admin Management 🛡️
+Admin Features
+
+Manage users
+
+Suspend users
+
+Reactivate users
+
+Manage courses
+
+Manage skills/categories
+
+Monitor transactions
+
+Manage reports
+
+Moderate content
+
+View platform statistics
+
+Course approval/rejection
+
+Branch
+feature/admin
+APIs
+GET /api/admin/users
+PUT /api/admin/users/{id}/suspend
+
+GET /api/admin/courses
+PUT /api/admin/courses/{id}/approve
+PUT /api/admin/courses/{id}/reject
+
+GET /api/admin/reports
+PUT /api/admin/reports/{id}/resolve
+
+GET /api/admin/transactions
+GET /api/admin/analytics
+Phase 19 — Reports & Moderation 🚨
+Features
+
+Users can report:
+
+User
+Course
+Review
+Session
+Content
+Report Data
+Reporter
+Target
+Reason
+Description
+Status
+Timestamps
+Branch
+feature/moderation
+
+Admin actions should be auditable.
+
+Phase 20 — Advanced Messaging 💬
+
+Messaging is an advanced feature.
+
+Features
+
+Create conversations
+
+Retrieve conversations
+
+Send messages
+
+Retrieve messages
+
+Unread message count
+
+Conversation authorization
+
+WebSocket support
+
+Branch
+feature/messaging
+Phase 21 — Testing 🧪
+Unit Testing
+
+Service tests
+
+Controller tests
+
+Repository tests
+
+Security tests
+
+Integration Testing
+
+Authentication workflow
+
+Course workflow
+
+Enrollment workflow
+
+SkillPoint transactions
+
+Payment workflow
+
+Skill exchange workflow
+
+Admin authorization
+
+The PRD specifically requires testing for authentication, enrollment models, SkillPoints, payment idempotency, skill exchange, and Admin authorization.
+
+Branch
+feature/testing
+Phase 22 — Swagger / OpenAPI 📚 ✅
+
+Document all REST APIs.
+
+Swagger
+http://localhost:8080/swagger-ui/index.html
+API Groups
+Authentication ✅
+Users ✅
+Skills ✅
+Categories ✅
+Courses ✅
+Enrollment ✅
+Progress ✅
+SkillPoints
+Wallet
+Orders
+Payments
+Reviews
+Skill Exchange
+Notifications
+Admin
+🎨 Phase 23 — Frontend Development
+
+Backend complete hone ke baad frontend start hoga.
+
+Frontend Modules
+frontend/
+│
+├── Authentication
+├── Home
+├── Profile
+├── Skills
+├── Courses
+├── Course Details
+├── Enrollment
+├── Learning Dashboard
+├── SkillPoints
+├── Wallet
+├── Skill Matching
+├── Skill Exchange
+├── Notifications
+├── Reviews
+└── Admin Dashboard
+Frontend Branches
+feature/frontend-auth
+feature/frontend-profile
+feature/frontend-skills
+feature/frontend-courses
+feature/frontend-learning
+feature/frontend-skillpoints
+feature/frontend-exchange
+feature/frontend-admin
+🔗 Phase 24 — Frontend & Backend Integration
+Tasks
+
+Configure Axios
+
+Connect authentication APIs
+
+JWT handling
+
+Connect profile APIs
+
+Connect skills APIs
+
+Connect course APIs
+
+Connect enrollment APIs
+
+Connect SkillPoint APIs
+
+Connect wallet/payment APIs
+
+Connect matching APIs
+
+Connect exchange APIs
+
+Connect notification APIs
+
+Connect Admin APIs
+
+Handle API errors
+
+Add loading states
+
+🐳 Phase 25 — Docker & Deployment
+Backend
+
+Dockerfile
+
+Environment variables
+
+Production configuration
+
+Database
+
+MongoDB Atlas
+
+Production indexes
+
+Secure credentials
+
+Frontend
+
+Production build
+
+Environment configuration
+
+Deploy frontend
+
+Final Architecture
+                    ┌──────────────────┐
+                    │ React Frontend   │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ Spring Boot API  │
+                    └────────┬─────────┘
+                             │
+                             ▼
+                    ┌──────────────────┐
+                    │ MongoDB / Atlas  │
+                    └──────────────────┘
+📂 Backend Project Structure
+backend/
+└── src/
+    └── main/
+        ├── java/
+        │   └── com/
+        │       └── skillswap/
+        │           └── backend/
+        │               ├── config/
+        │               ├── controller/
+        │               ├── dto/
+        │               │   ├── request/
+        │               │   └── response/
+        │               ├── entity/
+        │               ├── repository/
+        │               ├── service/
+        │               │   └── impl/
+        │               ├── security/
+        │               ├── exception/
+        │               └── SkillswapBackendApplication.java
+        │
+        └── resources/
+            └── application.properties
+🗄️ MongoDB Collections
+
+The backend PRD proposes collections including:
+
+users ✅
+skills ✅
+user_skills ✅
+categories
+
+courses ✅
+course_lessons ✅
+course_enrollments ✅
+course_progress ✅
+
+certificates ✅
+reviews
+
+skill_exchanges
+skill_exchange_requests
+skill_sessions
+
+wallets
+wallet_transactions
+skillpoint_transactions
+
+orders
+payments
+wishlists
+
+notifications
+reports
+
+messages
+conversations
+🔄 Git Workflow
+1. Start from develop
+git checkout develop
+git pull origin develop
+2. Create feature branch
+git checkout -b feature/feature-name
+3. Work on the feature
+git status
+4. Commit
+git add .
+git commit -m "feat: add feature"
+5. Push
+git push -u origin feature/feature-name
+6. Create Pull Request
+feature/feature-name
+        ↓
+   Pull Request
+        ↓
+      develop
+7. After testing
+develop
+   ↓
+Pull Request
+   ↓
+ main
+📝 Commit Convention
+
+Use clear conventional commits:
+
+feat: add user registration
+feat: implement JWT authentication
+feat: add skill management
+feat: implement course CRUD
+feat: add course enrollment
+feat: implement SkillPoint transactions
+
+fix: resolve JWT validation issue
+fix: prevent duplicate enrollment
+
+test: add authentication tests
+test: add skill exchange tests
+
+refactor: improve matching service
+docs: update API documentation
+📊 Project Milestones
+Milestone	Status
+GitHub Setup	✅
+Spring Boot Setup	✅
+MongoDB Setup	✅
+Common Configuration	✅
+Authentication	✅
+User Profile	✅
+Skill Management	✅
+Categories	✅
+Course Management	✅
+Course Content	✅
+Course Discovery	✅
+Enrollment	✅
+Learning Progress	✅
+Certificates	✅
+SkillPoints	⬜
+Wallet	⬜
+Orders & Payments	⬜
+Reviews	⬜
+Skill Matching	⬜
+Skill Exchange	⬜
+Skill Sessions	⬜
+Wishlist	⬜
+Notifications	⬜
+Admin	⬜
+Moderation	⬜
+Testing	⬜
+Swagger	✅
+Frontend	⬜
+Integration	⬜
+Docker	⬜
+Deployment	⬜
+🚀 Complete User Flow
+                    ┌──────────────┐
+                    │    Register  │
+                    └──────┬───────┘
+                           ↓
+                    ┌──────────────┐
+                    │     Login    │
+                    └──────┬───────┘
+                           ↓
+                    ┌──────────────┐
+                    │ Create Profile│
+                    └──────┬───────┘
+                           ↓
+                 ┌────────────────────┐
+                 │ Add Teaching/Learn │
+                 │      Skills        │
+                 └──────────┬─────────┘
+                            ↓
+              ┌──────────────────────────┐
+              │    Explore / Create      │
+              │         Courses          │
+              └────────────┬─────────────┘
+                           ↓
+                    ┌──────────────┐
+                    │    Enroll    │
+                    └──────┬───────┘
+                           ↓
+                  ┌─────────────────┐
+                  │ Learn & Progress│
+                  └────────┬────────┘
+                           ↓
+                    ┌──────────────┐
+                    │  Certificate │
+                    └──────────────┘
+
+
+       ┌────────────────────────────────────────┐
+       │           SKILL EXCHANGE               │
+       └────────────────────┬───────────────────┘
+                            ↓
+                     Find Match
+                            ↓
+                  Send Exchange Request
+                            ↓
+                     Accept / Reject
+                            ↓
+                    Exchange Skills
+                            ↓
+                       Complete
+                            ↓
+                       Review
+🌟 Advanced Features
+
+The following features can be added after the core MVP:
+
+Real payment gateway
+Creator payouts
+One-to-one session booking
+Real-time WebSocket messaging
+MinIO object storage
+AI course recommendations
+AI skill-gap analysis
+Advanced analytics
+Gamification
+Badges
+Audit logs
+Advanced moderation
+
+These are classified as advanced backend features in the PRD.
+
+✅ Backend MVP
+
+The first complete backend milestone will include:
+
+✓ Spring Boot setup
+✓ MongoDB
+✓ JWT Authentication
+✓ Unified User Profile
+✓ Skill Management
+✓ Course CRUD
+✓ FREE / SKILLPOINT / PAID Courses
+✓ Course Search & Filtering
+✓ Enrollment
+✓ Learning Progress
+✓ Certificates
+□ SkillPoints
+□ Wallet & Earnings
+□ Reviews & Ratings
+□ Skill Matching / Exchange
+□ Notifications
+□ Admin APIs
+✓ Validation & Exception Handling
+✓ Swagger / OpenAPI
+
+This corresponds to the MVP scope defined in the Backend PRD.
+
+📄 License
+
+This project is developed for educational, portfolio, and collaborative software-development purposes.
