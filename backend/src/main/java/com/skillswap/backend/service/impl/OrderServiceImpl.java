@@ -4,9 +4,11 @@ import com.skillswap.backend.dto.request.CreateOrderRequest;
 import com.skillswap.backend.dto.request.PaymentCallbackRequest;
 import com.skillswap.backend.dto.response.OrderResponse;
 import com.skillswap.backend.entity.*;
+import com.skillswap.backend.entity.Notification.NotificationType;
 import com.skillswap.backend.exception.BadRequestException;
 import com.skillswap.backend.exception.ResourceNotFoundException;
 import com.skillswap.backend.repository.*;
+import com.skillswap.backend.service.NotificationService;
 import com.skillswap.backend.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,7 @@ public class OrderServiceImpl implements OrderService {
     private final CourseRepository courseRepository;
     private final CreatorWalletRepository creatorWalletRepository;
     private final WalletTransactionRepository walletTransactionRepository;
+    private final NotificationService notificationService;
 
     @Override
     public OrderResponse createOrder(String buyerId, CreateOrderRequest request) {
@@ -93,6 +96,24 @@ public class OrderServiceImpl implements OrderService {
 
         if (orderStatus == Order.OrderStatus.PAID) {
             creditCreatorWallet(order);
+
+            courseRepository.findById(order.getCourseId()).ifPresent(course -> {
+                notificationService.notify(
+                        order.getBuyerId(),
+                        NotificationType.PAYMENT_RECEIVED,
+                        "Payment successful",
+                        "Your payment for \"" + course.getTitle() + "\" was successful",
+                        order.getId(),
+                        "ORDER");
+
+                notificationService.notify(
+                        course.getCreatorId(),
+                        NotificationType.PAYMENT_RECEIVED,
+                        "You made a sale!",
+                        "Someone purchased your course \"" + course.getTitle() + "\"",
+                        order.getId(),
+                        "ORDER");
+            });
         }
 
         return toResponse(savedOrder);

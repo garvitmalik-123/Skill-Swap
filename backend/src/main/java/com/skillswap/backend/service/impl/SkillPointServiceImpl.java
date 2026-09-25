@@ -2,11 +2,13 @@ package com.skillswap.backend.service.impl;
 
 import com.skillswap.backend.dto.response.SkillPointBalanceResponse;
 import com.skillswap.backend.dto.response.SkillPointTransactionResponse;
+import com.skillswap.backend.entity.Notification.NotificationType;
 import com.skillswap.backend.entity.SkillPointTransaction;
 import com.skillswap.backend.entity.SkillPointWallet;
 import com.skillswap.backend.exception.BadRequestException;
 import com.skillswap.backend.repository.SkillPointTransactionRepository;
 import com.skillswap.backend.repository.SkillPointWalletRepository;
+import com.skillswap.backend.service.NotificationService;
 import com.skillswap.backend.service.SkillPointService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.OptimisticLockingFailureException;
@@ -23,6 +25,7 @@ public class SkillPointServiceImpl implements SkillPointService {
 
     private final SkillPointWalletRepository walletRepository;
     private final SkillPointTransactionRepository transactionRepository;
+    private final NotificationService notificationService;
 
     @Override
     public SkillPointBalanceResponse getBalance(String userId) {
@@ -67,7 +70,17 @@ public class SkillPointServiceImpl implements SkillPointService {
                 .idempotencyKey(idempotencyKey)
                 .build();
 
-        return toResponse(transactionRepository.save(transaction));
+        SkillPointTransaction saved = transactionRepository.save(transaction);
+
+        notificationService.notify(
+                userId,
+                NotificationType.SKILLPOINTS_EARNED,
+                "SkillPoints earned",
+                "You earned " + amount + " SkillPoints" + (description != null ? " — " + description : ""),
+                referenceId,
+                reason.name());
+
+        return toResponse(saved);
     }
 
     @Override
@@ -103,7 +116,17 @@ public class SkillPointServiceImpl implements SkillPointService {
                 .idempotencyKey(idempotencyKey)
                 .build();
 
-        return toResponse(transactionRepository.save(transaction));
+        SkillPointTransaction saved = transactionRepository.save(transaction);
+
+        notificationService.notify(
+                userId,
+                NotificationType.SKILLPOINTS_SPENT,
+                "SkillPoints spent",
+                "You spent " + amount + " SkillPoints" + (description != null ? " — " + description : ""),
+                referenceId,
+                reason.name());
+
+        return toResponse(saved);
     }
 
     private SkillPointWallet getOrCreateWallet(String userId) {

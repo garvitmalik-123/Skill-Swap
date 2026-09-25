@@ -5,6 +5,7 @@ import com.skillswap.backend.dto.request.SessionCreateRequest;
 import com.skillswap.backend.dto.response.BookingResponse;
 import com.skillswap.backend.dto.response.SessionResponse;
 import com.skillswap.backend.entity.*;
+import com.skillswap.backend.entity.Notification.NotificationType;
 import com.skillswap.backend.entity.SessionBooking.BookingStatus;
 import com.skillswap.backend.entity.SkillSession.SessionStatus;
 import com.skillswap.backend.entity.SkillSession.SessionType;
@@ -12,6 +13,7 @@ import com.skillswap.backend.exception.BadRequestException;
 import com.skillswap.backend.exception.ForbiddenException;
 import com.skillswap.backend.exception.ResourceNotFoundException;
 import com.skillswap.backend.repository.*;
+import com.skillswap.backend.service.NotificationService;
 import com.skillswap.backend.service.SkillPointService;
 import com.skillswap.backend.service.SkillSessionService;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +34,7 @@ public class SkillSessionServiceImpl implements SkillSessionService {
     private final UserRepository userRepository;
     private final SkillRepository skillRepository;
     private final SkillPointService skillPointService;
+    private final NotificationService notificationService;
 
     @Override
     public SessionResponse createSession(String teacherId, SessionCreateRequest request) {
@@ -139,7 +142,18 @@ public class SkillSessionServiceImpl implements SkillSessionService {
                 .paymentReferenceId(session.getType() == SessionType.SKILLPOINT ? idempotencyKey : null)
                 .build();
 
-        return toBookingResponse(bookingRepository.save(booking));
+        SessionBooking saved = bookingRepository.save(booking);
+
+        String learnerName = userRepository.findById(learnerId).map(User::getName).orElse("A learner");
+        notificationService.notify(
+                session.getTeacherId(),
+                NotificationType.SESSION_BOOKING,
+                "New session booking",
+                learnerName + " booked your session \"" + session.getTitle() + "\"",
+                saved.getId(),
+                "SESSION_BOOKING");
+
+        return toBookingResponse(saved);
     }
 
     @Override
@@ -182,6 +196,14 @@ public class SkillSessionServiceImpl implements SkillSessionService {
                     "Earning from completed session: " + session.getTitle(),
                     "session-earn:" + booking.getId());
         }
+
+        notificationService.notify(
+                booking.getLearnerId(),
+                NotificationType.SESSION_COMPLETED,
+                "Session completed",
+                "Your session \"" + session.getTitle() + "\" is marked complete",
+                saved.getId(),
+                "SESSION_BOOKING");
 
         return toBookingResponse(saved);
     }

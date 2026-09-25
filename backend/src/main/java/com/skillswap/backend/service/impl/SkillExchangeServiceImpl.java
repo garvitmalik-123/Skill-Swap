@@ -2,12 +2,14 @@ package com.skillswap.backend.service.impl;
 
 import com.skillswap.backend.dto.request.ExchangeRequestCreateRequest;
 import com.skillswap.backend.dto.response.ExchangeRequestResponse;
+import com.skillswap.backend.entity.Notification.NotificationType;
 import com.skillswap.backend.entity.SkillExchangeRequest;
 import com.skillswap.backend.entity.SkillExchangeRequest.ExchangeStatus;
 import com.skillswap.backend.entity.User;
 import com.skillswap.backend.exception.*;
 import com.skillswap.backend.repository.SkillExchangeRequestRepository;
 import com.skillswap.backend.repository.UserRepository;
+import com.skillswap.backend.service.NotificationService;
 import com.skillswap.backend.service.SkillExchangeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,7 @@ public class SkillExchangeServiceImpl implements SkillExchangeService {
 
     private final SkillExchangeRequestRepository exchangeRepository;
     private final UserRepository userRepository;
+    private final NotificationService notificationService;
 
     @Override
     public ExchangeRequestResponse sendRequest(String senderId, ExchangeRequestCreateRequest request) {
@@ -28,6 +31,8 @@ public class SkillExchangeServiceImpl implements SkillExchangeService {
             throw new ValidationException("You cannot send a request to yourself");
         }
 
+        User sender = userRepository.findById(senderId)
+                .orElseThrow(() -> new ResourceNotFoundException("Sender not found"));
         userRepository.findById(request.getReceiverId())
                 .orElseThrow(() -> new ResourceNotFoundException("Receiver not found"));
 
@@ -46,7 +51,17 @@ public class SkillExchangeServiceImpl implements SkillExchangeService {
                 .status(ExchangeStatus.PENDING)
                 .build();
 
-        return mapToResponse(exchangeRepository.save(exchange));
+        SkillExchangeRequest saved = exchangeRepository.save(exchange);
+
+        notificationService.notify(
+                request.getReceiverId(),
+                NotificationType.SKILL_EXCHANGE_REQUEST,
+                "New skill exchange request",
+                sender.getName() + " wants to exchange skills with you",
+                saved.getId(),
+                "SKILL_EXCHANGE_REQUEST");
+
+        return mapToResponse(saved);
     }
 
     @Override
@@ -62,7 +77,10 @@ public class SkillExchangeServiceImpl implements SkillExchangeService {
         SkillExchangeRequest exchange = getOwnedByReceiver(requestId, userId);
         validateStatus(exchange, ExchangeStatus.PENDING);
         exchange.setStatus(ExchangeStatus.ACCEPTED);
-        return mapToResponse(exchangeRepository.save(exchange));
+        SkillExchangeRequest saved = exchangeRepository.save(exchange);
+
+        notifyResponse(saved, "accepted");
+        return mapToResponse(saved);
     }
 
     @Override
@@ -70,7 +88,10 @@ public class SkillExchangeServiceImpl implements SkillExchangeService {
         SkillExchangeRequest exchange = getOwnedByReceiver(requestId, userId);
         validateStatus(exchange, ExchangeStatus.PENDING);
         exchange.setStatus(ExchangeStatus.REJECTED);
-        return mapToResponse(exchangeRepository.save(exchange));
+        SkillExchangeRequest saved = exchangeRepository.save(exchange);
+
+        notifyResponse(saved, "rejected");
+        return mapToResponse(saved);
     }
 
     @Override
@@ -87,6 +108,19 @@ public class SkillExchangeServiceImpl implements SkillExchangeService {
         exchange.setStatus(ExchangeStatus.COMPLETED);
         exchange.setCompletedAt(Instant.now());
         return mapToResponse(exchangeRepository.save(exchange));
+    }
+
+    private void notifyResponse(SkillExchangeRequest exchange, String action) {
+        String receiverName = userRepository.findById(exchange.getReceiverId())
+                .map(User::getName).orElse("The user");
+
+        notificationService.notify(
+                exchange.getSenderId(),
+                NotificationType.EXCHANGE_RESPONSE,
+                "Exchange request " + action,
+                receiverName + " " + action + " your skill exchange request",
+                exchange.getId(),
+                "SKILL_EXCHANGE_REQUEST");
     }
 
     private SkillExchangeRequest getOwnedByReceiver(String requestId, String userId) {
