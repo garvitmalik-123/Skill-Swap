@@ -183,7 +183,7 @@ main
 
 The project follows a **backend-first development strategy**. The backend development order is based on the SkillSwap Backend PRD.
 
-> **Current status:** Phases 1–15 complete. The backend now covers project setup, JWT authentication, profiles & skills, categories, course management, course content, course discovery, enrollment, learning progress, certificates, SkillPoints, wallet & payments, reviews, skill exchange, and skill sessions.
+> **Current status:** Phases 1–21 complete. The backend now covers project setup, JWT authentication, profiles & skills, categories, course management, course content, course discovery, enrollment, learning progress, certificates, SkillPoints, wallet & payments, reviews, skill exchange, and skill sessions.
 
 ---
 
@@ -733,14 +733,14 @@ feature/skill-sessions
 
 ---
 
-# Phase 16 — Wishlist ❤️
+# Phase 16 — Wishlist ❤️ ✅
 
 ### Features
 
-* [ ] Add course to wishlist
-* [ ] Remove course
-* [ ] View wishlist
-* [ ] Prevent duplicate wishlist entries
+* [x] Add course to wishlist
+* [x] Remove course
+* [x] View wishlist
+* [x] Prevent duplicate wishlist entries
 
 ### Branch
 
@@ -750,7 +750,7 @@ feature/wishlist
 
 ---
 
-# Phase 17 — Notifications 🔔
+# Phase 17 — Notifications 🔔 ✅
 
 Notifications will be generated for important platform events.
 
@@ -769,11 +769,11 @@ Notifications will be generated for important platform events.
 
 ### Features
 
-* [ ] Create notification
-* [ ] Get notifications
-* [ ] Read notification
-* [ ] Mark all as read
-* [ ] Server-side read/unread status
+* [x] Create notification
+* [x] Get notifications
+* [x] Read notification
+* [x] Mark all as read
+* [x] Server-side read/unread status
 
 ### Branch
 
@@ -792,20 +792,20 @@ PUT /api/notifications/read-all
 
 ---
 
-# Phase 18 — Admin Management 🛡️
+# Phase 18 — Admin Management 🛡️ ✅
 
 ### Admin Features
 
-* [ ] Manage users
-* [ ] Suspend users
-* [ ] Reactivate users
-* [ ] Manage courses
-* [ ] Manage skills/categories
-* [ ] Monitor transactions
-* [ ] Manage reports
-* [ ] Moderate content
-* [ ] View platform statistics
-* [ ] Course approval/rejection
+* [x] Manage users
+* [x] Suspend users
+* [x] Reactivate users
+* [x] Manage courses
+* [x] Manage skills/categories
+* [x] Monitor transactions
+* [x] Manage reports
+* [x] Moderate content
+* [x] View platform statistics
+* [x] Course approval/rejection
 
 ### Branch
 
@@ -832,7 +832,7 @@ GET /api/admin/analytics
 
 ---
 
-# Phase 19 — Reports & Moderation 🚨
+# Phase 19 — Reports & Moderation 🚨 ✅
 
 ### Features
 
@@ -865,19 +865,19 @@ Admin actions should be auditable.
 
 ---
 
-# Phase 20 — Advanced Messaging 💬
+# Phase 20 — Advanced Messaging 💬 ✅
 
 Messaging is an advanced feature.
 
 ### Features
 
-* [ ] Create conversations
-* [ ] Retrieve conversations
-* [ ] Send messages
-* [ ] Retrieve messages
-* [ ] Unread message count
-* [ ] Conversation authorization
-* [ ] WebSocket support
+* [x] Create conversations
+* [x] Retrieve conversations
+* [x] Send messages
+* [x] Retrieve messages
+* [x] Unread message count
+* [x] Conversation authorization
+* [x] WebSocket support
 
 ### Branch
 
@@ -887,24 +887,24 @@ feature/messaging
 
 ---
 
-# Phase 21 — Testing 🧪
+# Phase 21 — Testing 🧪 ✅
 
 ## Unit Testing
 
-* [ ] Service tests
-* [ ] Controller tests
-* [ ] Repository tests
-* [ ] Security tests
+* [x] Service tests
+* [x] Controller tests
+* [x] Repository tests
+* [x] Security tests
 
 ## Integration Testing
 
-* [ ] Authentication workflow
-* [ ] Course workflow
-* [ ] Enrollment workflow
-* [ ] SkillPoint transactions
-* [ ] Payment workflow
-* [ ] Skill exchange workflow
-* [ ] Admin authorization
+* [x] Authentication workflow
+* [x] Course workflow
+* [x] Enrollment workflow
+* [x] SkillPoint transactions
+* [x] Payment workflow
+* [x] Skill exchange workflow
+* [x] Admin authorization
 
 The PRD specifically requires testing for authentication, enrollment models, SkillPoints, payment idempotency, skill exchange, and Admin authorization.
 
@@ -1225,11 +1225,11 @@ docs: update API documentation
 | Skill Matching         | ✅      |
 | Skill Exchange         | ✅      |
 | Skill Sessions         | ✅      |
-| Wishlist               | ⬜      |
-| Notifications          | ⬜      |
-| Admin                  | ⬜      |
-| Moderation             | ⬜      |
-| Testing                | ⬜      |
+| Wishlist               | ✅      |
+| Notifications          | ✅      |
+| Admin                  | ✅      |
+| Moderation             | ✅      |
+| Testing                | ✅      |
 | Swagger                | ✅      |
 | Frontend               | ⬜      |
 | Integration            | ⬜      |
@@ -1318,7 +1318,7 @@ These are classified as advanced backend features in the PRD.
 
 # ✅ Backend MVP
 
-The backend milestone completed through Phase 15 includes:
+The backend milestone completed through **Phase 21** includes:
 
 ```text
 ✓ Spring Boot setup
@@ -1336,8 +1336,12 @@ The backend milestone completed through Phase 15 includes:
 ✓ Wallet & Earnings
 ✓ Reviews & Ratings
 ✓ Skill Matching / Exchange
-□ Notifications
-□ Admin APIs
+✓ Wishlist
+✓ Notifications
+✓ Admin Management
+✓ Reports & Moderation
+✓ Advanced Messaging
+✓ Testing
 ✓ Validation & Exception Handling
 ✓ Swagger / OpenAPI
 ```
