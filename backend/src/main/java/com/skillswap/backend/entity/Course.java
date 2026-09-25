@@ -49,6 +49,8 @@ public class Course {
     @Builder.Default
     private CourseStatus status = CourseStatus.DRAFT;
 
+    private String rejectionReason;
+
     @Builder.Default
     private double averageRating = 0.0;
 

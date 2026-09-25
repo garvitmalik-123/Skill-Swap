@@ -3,9 +3,11 @@ package com.skillswap.backend.service.impl;
 import com.skillswap.backend.dto.request.ReviewRequest;
 import com.skillswap.backend.dto.response.ReviewResponse;
 import com.skillswap.backend.entity.Course;
+import com.skillswap.backend.entity.Notification.NotificationType;
 import com.skillswap.backend.entity.Review;
 import com.skillswap.backend.exception.*;
 import com.skillswap.backend.repository.*;
+import com.skillswap.backend.service.NotificationService;
 import com.skillswap.backend.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -20,6 +22,7 @@ public class ReviewServiceImpl implements ReviewService {
     private final CourseRepository courseRepository;
     private final CourseEnrollmentRepository enrollmentRepository;
     private final UserRepository userRepository;
+    private final NotificationService notificationService;
 
     @Override
     public ReviewResponse createReview(String courseId, String userId, ReviewRequest request) {
@@ -45,6 +48,14 @@ public class ReviewServiceImpl implements ReviewService {
 
         review = reviewRepository.save(review);
         recalculateRating(courseId);
+
+        notificationService.notify(
+                course.getCreatorId(),
+                NotificationType.NEW_REVIEW,
+                "New review on your course",
+                "Your course \"" + course.getTitle() + "\" received a " + request.getRating() + "-star review",
+                courseId,
+                "COURSE");
 
         return mapToResponse(review);
     }

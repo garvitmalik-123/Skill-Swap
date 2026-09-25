@@ -6,6 +6,7 @@ import com.skillswap.backend.entity.Course;
 import com.skillswap.backend.entity.CourseEnrollment;
 import com.skillswap.backend.entity.Lesson;
 import com.skillswap.backend.entity.LessonProgress;
+import com.skillswap.backend.entity.Notification.NotificationType;
 import com.skillswap.backend.exception.BadRequestException;
 import com.skillswap.backend.exception.DuplicateResourceException;
 import com.skillswap.backend.exception.ResourceNotFoundException;
@@ -14,6 +15,7 @@ import com.skillswap.backend.repository.CourseRepository;
 import com.skillswap.backend.repository.LessonProgressRepository;
 import com.skillswap.backend.repository.LessonRepository;
 import com.skillswap.backend.service.EnrollmentService;
+import com.skillswap.backend.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,6 +32,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     private final CourseRepository courseRepository;
     private final LessonRepository lessonRepository;
     private final LessonProgressRepository lessonProgressRepository;
+    private final NotificationService notificationService;
 
     @Override
     public EnrollmentResponse enroll(String userId, String courseId) {
@@ -63,6 +66,22 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 
         course.setEnrollmentCount(course.getEnrollmentCount() + 1);
         courseRepository.save(course);
+
+        notificationService.notify(
+                userId,
+                NotificationType.COURSE_ENROLLMENT,
+                "Enrolled successfully",
+                "You enrolled in \"" + course.getTitle() + "\"",
+                course.getId(),
+                "COURSE");
+
+        notificationService.notify(
+                course.getCreatorId(),
+                NotificationType.NEW_LEARNER_ENROLLED,
+                "New learner enrolled",
+                "Someone enrolled in your course \"" + course.getTitle() + "\"",
+                course.getId(),
+                "COURSE");
 
         return toResponse(saved, course.getTitle());
     }
@@ -140,6 +159,15 @@ public class EnrollmentServiceImpl implements EnrollmentService {
                     enrollment.setStatus(CourseEnrollment.EnrollmentStatus.COMPLETED);
                     enrollment.setCompletedAt(Instant.now());
                     enrollmentRepository.save(enrollment);
+
+                    courseRepository.findById(courseId).ifPresent(course ->
+                            notificationService.notify(
+                                    userId,
+                                    NotificationType.COURSE_COMPLETION,
+                                    "Course completed!",
+                                    "You completed \"" + course.getTitle() + "\"",
+                                    courseId,
+                                    "COURSE"));
                 }
             });
         }
