@@ -1,7 +1,9 @@
 package com.skillswap.backend.service;
 
 import com.skillswap.backend.dto.request.CourseRejectionRequest;
+import com.skillswap.backend.dto.request.ReportResolveRequest;
 import com.skillswap.backend.dto.response.*;
+import com.skillswap.backend.entity.Report.ReportStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -18,4 +20,7 @@ public interface AdminService {
     Page<AdminCourseResponse> getAllCourses(Pageable pageable);
     void approveCourse(String courseId, String adminId);
     void rejectCourse(String courseId, String adminId, CourseRejectionRequest request);
+
+    Page<ReportResponse> getAllReports(ReportStatus status, Pageable pageable);
+    ReportResponse resolveReport(String reportId, String adminId, ReportResolveRequest request);
 }

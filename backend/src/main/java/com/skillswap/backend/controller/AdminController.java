@@ -1,7 +1,9 @@
 package com.skillswap.backend.controller;
 
 import com.skillswap.backend.dto.request.CourseRejectionRequest;
+import com.skillswap.backend.dto.request.ReportResolveRequest;
 import com.skillswap.backend.dto.response.*;
+import com.skillswap.backend.entity.Report.ReportStatus;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.AdminService;
 import jakarta.validation.Valid;
@@ -72,5 +74,20 @@ public class AdminController {
     @GetMapping("/analytics")
     public ResponseEntity<AnalyticsResponse> getAnalytics() {
         return ResponseEntity.ok(adminService.getAnalytics());
+    }
+
+    @GetMapping("/reports")
+    public ResponseEntity<Page<ReportResponse>> getAllReports(
+            @RequestParam(required = false) ReportStatus status,
+            Pageable pageable) {
+        return ResponseEntity.ok(adminService.getAllReports(status, pageable));
+    }
+
+    @PutMapping("/reports/{id}/resolve")
+    public ResponseEntity<ReportResponse> resolveReport(
+            @PathVariable String id,
+            @Valid @RequestBody ReportResolveRequest request,
+            @AuthenticationPrincipal CustomUserDetails userDetails) {
+        return ResponseEntity.ok(adminService.resolveReport(id, userDetails.getUserId(), request));
     }
 }
