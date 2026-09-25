@@ -1,15 +1,18 @@
 package com.skillswap.backend.service.impl;
 
 import com.skillswap.backend.dto.request.CourseRejectionRequest;
+import com.skillswap.backend.dto.request.ReportResolveRequest;
 import com.skillswap.backend.dto.response.*;
 import com.skillswap.backend.entity.*;
 import com.skillswap.backend.entity.Notification.NotificationType;
+import com.skillswap.backend.entity.Report.ReportStatus;
 import com.skillswap.backend.entity.User.AccountStatus;
 import com.skillswap.backend.exception.BadRequestException;
 import com.skillswap.backend.exception.ResourceNotFoundException;
 import com.skillswap.backend.repository.*;
 import com.skillswap.backend.service.AdminService;
 import com.skillswap.backend.service.NotificationService;
+import com.skillswap.backend.service.ReportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,6 +36,7 @@ public class AdminServiceImpl implements AdminService {
     private final SkillPointTransactionRepository skillPointTransactionRepository;
     private final WalletTransactionRepository walletTransactionRepository;
     private final NotificationService notificationService;
+    private final ReportService reportService;
 
     @Override
     public Page<AdminUserResponse> getAllUsers(Pageable pageable) {
@@ -202,6 +206,16 @@ public class AdminServiceImpl implements AdminService {
                 "Your course \"" + course.getTitle() + "\" was rejected: " + request.getReason(),
                 course.getId(),
                 "COURSE");
+    }
+
+    @Override
+    public Page<ReportResponse> getAllReports(ReportStatus status, Pageable pageable) {
+        return reportService.getAllReports(status, pageable);
+    }
+
+    @Override
+    public ReportResponse resolveReport(String reportId, String adminId, ReportResolveRequest request) {
+        return reportService.resolveReport(reportId, adminId, request);
     }
 
     private AdminUserResponse toAdminUserResponse(User user) {
