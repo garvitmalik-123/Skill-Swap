@@ -6,6 +6,7 @@ import com.skillswap.backend.dto.response.MatchResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.MatchingService;
 import com.skillswap.backend.service.SkillExchangeService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/skill-exchange")
 @RequiredArgsConstructor
+@Tag(name = "Skill Exchange", description = "Skill matching and exchange requests")
 public class SkillExchangeController {
 
     private final MatchingService matchingService;

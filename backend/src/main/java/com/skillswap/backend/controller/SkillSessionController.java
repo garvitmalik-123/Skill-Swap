@@ -6,6 +6,7 @@ import com.skillswap.backend.dto.response.BookingResponse;
 import com.skillswap.backend.dto.response.SessionResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.SkillSessionService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -19,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/skill-sessions")
 @RequiredArgsConstructor
+@Tag(name = "Skill Sessions", description = "Booking and managing 1-on-1 skill sessions")
 public class SkillSessionController {
 
     private final SkillSessionService skillSessionService;

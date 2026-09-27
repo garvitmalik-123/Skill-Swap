@@ -6,6 +6,7 @@ import com.skillswap.backend.dto.response.ApiResponse;
 import com.skillswap.backend.dto.response.CourseResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.CourseService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -20,6 +21,7 @@ import com.skillswap.backend.entity.Course;
 @RestController
 @RequestMapping("/api/courses")
 @RequiredArgsConstructor
+@Tag(name = "Courses", description = "Course CRUD, publishing, and lifecycle management")
 public class CourseController {
 
     private final CourseService courseService;

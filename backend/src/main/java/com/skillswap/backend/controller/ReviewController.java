@@ -4,6 +4,7 @@ import com.skillswap.backend.dto.request.ReviewRequest;
 import com.skillswap.backend.dto.response.ReviewResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.ReviewService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
+@Tag(name = "Reviews", description = "Course and session reviews and ratings")
 public class ReviewController {
 
     private final ReviewService reviewService;

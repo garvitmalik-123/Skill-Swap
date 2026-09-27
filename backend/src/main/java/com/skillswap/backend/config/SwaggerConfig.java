@@ -19,7 +19,7 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .info(new Info()
                         .title("SkillSwap Backend API")
-                        .description("REST API documentation for the SkillSwap peer-to-peer learning and skill-exchange platform")
+                        .description("REST API documentation for the SkillSwap peer-to-peer learning and skill-exchange platform.")
                         .version("v1.0")
                         .contact(new Contact()
                                 .name("SkillSwap Team")))

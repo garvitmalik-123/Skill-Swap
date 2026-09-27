@@ -4,6 +4,7 @@ import com.skillswap.backend.dto.request.ReportCreateRequest;
 import com.skillswap.backend.dto.response.ReportResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.ReportService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/reports")
 @RequiredArgsConstructor
+@Tag(name = "Moderation", description = "Reporting and content moderation")
 public class ReportController {
 
     private final ReportService reportService;
