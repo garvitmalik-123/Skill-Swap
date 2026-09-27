@@ -3,6 +3,7 @@ package com.skillswap.backend.controller;
 import com.skillswap.backend.dto.response.NotificationResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.NotificationService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/notifications")
 @RequiredArgsConstructor
+@Tag(name = "Notifications", description = "User notifications")
 public class NotificationController {
 
     private final NotificationService notificationService;

@@ -5,8 +5,9 @@ import com.skillswap.backend.service.SkillService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
+@Tag(name = "Skills", description = "Skill catalog and user skill management")
 
 @RestController
 @RequestMapping("/api/skills")

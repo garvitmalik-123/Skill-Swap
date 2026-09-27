@@ -4,6 +4,7 @@ import com.skillswap.backend.dto.response.ApiResponse;
 import com.skillswap.backend.dto.response.WishlistItemResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.WishlistService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/wishlist")
 @RequiredArgsConstructor
+@Tag(name = "Wishlist", description = "Saving courses for later")
 public class WishlistController {
 
     private final WishlistService wishlistService;

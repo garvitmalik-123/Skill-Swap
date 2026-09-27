@@ -4,6 +4,7 @@ import com.skillswap.backend.dto.response.ApiResponse;
 import com.skillswap.backend.dto.response.CertificateResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.CertificateService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -14,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/certificates")
 @RequiredArgsConstructor
+@Tag(name = "Certificates", description = "Certificate generation and verification")
 public class CertificateController {
 
     private final CertificateService certificateService;

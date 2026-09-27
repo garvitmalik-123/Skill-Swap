@@ -6,6 +6,7 @@ import com.skillswap.backend.dto.response.ApiResponse;
 import com.skillswap.backend.dto.response.OrderResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.OrderService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/orders")
 @RequiredArgsConstructor
+@Tag(name = "Orders & Payments", description = "Order creation and payment processing")
 public class OrderController {
 
     private final OrderService orderService;

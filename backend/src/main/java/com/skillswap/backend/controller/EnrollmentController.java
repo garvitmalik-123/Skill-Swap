@@ -5,6 +5,7 @@ import com.skillswap.backend.dto.response.EnrollmentResponse;
 import com.skillswap.backend.dto.response.ProgressResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.EnrollmentService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
+@Tag(name = "Enrollment", description = "Course enrollment and learning progress")
 public class EnrollmentController {
 
     private final EnrollmentService enrollmentService;

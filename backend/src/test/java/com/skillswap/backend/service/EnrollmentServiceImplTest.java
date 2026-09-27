@@ -1,4 +1,4 @@
-package com.skillswap.backend.service.impl;
+package com.skillswap.backend.service;
 
 import com.skillswap.backend.entity.Course;
 import com.skillswap.backend.exception.BadRequestException;
@@ -7,7 +7,7 @@ import com.skillswap.backend.repository.CourseEnrollmentRepository;
 import com.skillswap.backend.repository.CourseRepository;
 import com.skillswap.backend.repository.LessonProgressRepository;
 import com.skillswap.backend.repository.LessonRepository;
-import com.skillswap.backend.service.NotificationService;
+import com.skillswap.backend.service.impl.EnrollmentServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
