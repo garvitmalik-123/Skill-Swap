@@ -5,6 +5,7 @@ import com.skillswap.backend.dto.response.SkillPointBalanceResponse;
 import com.skillswap.backend.dto.response.SkillPointTransactionResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.SkillPointService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/me/skillpoints")
 @RequiredArgsConstructor
+@Tag(name = "SkillPoints", description = "SkillPoint balance and transaction history")
 public class SkillPointController {
 
     private final SkillPointService skillPointService;

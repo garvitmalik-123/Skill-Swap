@@ -6,6 +6,7 @@ import com.skillswap.backend.dto.response.*;
 import com.skillswap.backend.entity.Report.ReportStatus;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.AdminService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/admin")
 @RequiredArgsConstructor
 @PreAuthorize("hasRole('ADMIN')")
+@Tag(name = "Admin", description = "Admin-only management endpoints")
 public class AdminController {
 
     private final AdminService adminService;

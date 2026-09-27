@@ -4,6 +4,7 @@ import com.skillswap.backend.dto.request.LessonRequest;
 import com.skillswap.backend.dto.response.LessonResponse;
 import com.skillswap.backend.security.CustomUserDetails;
 import com.skillswap.backend.service.LessonService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/courses/{courseId}/lessons")
 @RequiredArgsConstructor
+@Tag(name = "Course Content", description = "Course lessons and resources")
 public class LessonController {
 
     private final LessonService lessonService;
