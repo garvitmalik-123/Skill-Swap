@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import api from '../api/axios'
+import { useAuth } from '../context/AuthContext'
 
 function Login() {
     const [email, setEmail] = useState('')
@@ -8,30 +8,17 @@ function Login() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
+    const { login } = useAuth()
 
     async function handleSubmit(e) {
         e.preventDefault()
         setError('')
         setLoading(true)
         try {
-            const res = await api.post('/auth/login', { email, password })
-            console.log('LOGIN RESPONSE:', res.data)
-
-            // look for the token in the usual places
-            const body = res.data
-            const token =
-                body.token || body.accessToken || body.data?.token || body.data?.accessToken
-
-            if (!token) {
-                setError('Logged in, but I could not find the token. Press F12, open Console, and tell Claude what LOGIN RESPONSE shows.')
-                return
-            }
-
-            localStorage.setItem('token', token) // keep the "ID card" in the browser
+            await login(email, password)
             navigate('/dashboard')
         } catch (err) {
-            console.log(err)
-            setError(err.response?.data?.message || 'Something went wrong. Is the backend running?')
+            setError(err.response?.data?.message || err.message || 'Something went wrong. Is the backend running?')
         } finally {
             setLoading(false)
         }

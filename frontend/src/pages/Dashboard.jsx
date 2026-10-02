@@ -1,39 +1,16 @@
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import api from '../api/axios'
+import { useAuth } from '../context/AuthContext'
 
 function Dashboard() {
-    const [me, setMe] = useState(null)
-    const [error, setError] = useState('')
-    const navigate = useNavigate()
-
-    // runs once when the page opens
-    useEffect(() => {
-        api.get('/auth/me')
-            .then((res) => setMe(res.data))
-            .catch(() => {
-                setError('Could not load your account. Please log in again.')
-            })
-    }, [])
-
-    function logout() {
-        localStorage.removeItem('token')
-        navigate('/login')
-    }
+    const { user } = useAuth()
 
     return (
-        <div className="min-h-screen bg-indigo-50 p-8">
-            <div className="max-w-xl mx-auto bg-white p-6 rounded-xl shadow space-y-4">
-                <h1 className="text-2xl font-bold text-indigo-600">Dashboard 🎉</h1>
-                {error && <p className="text-red-600">{error}</p>}
-                {me && (
-                    <pre className="bg-gray-100 p-3 rounded text-sm overflow-auto">
-            {JSON.stringify(me, null, 2)}
-          </pre>
-                )}
-                <button onClick={logout} className="px-4 py-2 rounded-lg bg-indigo-600 text-white">
-                    Logout
-                </button>
+        <div className="min-h-[calc(100vh-64px)] bg-indigo-50 p-8">
+            <div className="max-w-xl mx-auto bg-white p-6 rounded-xl shadow space-y-2">
+                <h1 className="text-2xl font-bold text-indigo-600">Welcome, {user.name}! 🎉</h1>
+                <p className="text-gray-600">{user.email}</p>
+                <p className="text-gray-400 text-sm">
+                    Your learning dashboard will live here soon.
+                </p>
             </div>
         </div>
     )
