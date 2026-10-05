@@ -94,6 +94,13 @@ function CourseDetails() {
 
     // decides what appears in the box on the right
     function renderAction() {
+        if (user && course.creatorId === user.id) {
+            return (
+                <Link to={`/courses/${id}/manage`} className="block text-center px-4 py-2 rounded-lg bg-indigo-600 text-white">
+                    Manage this course
+                </Link>
+            )
+        }
         if (course.status !== 'PUBLISHED') {
             return <p className="text-amber-600 text-sm">This course is not published yet.</p>
         }

@@ -7,6 +7,8 @@ import com.skillswap.backend.dto.response.CourseResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface CourseService {
 
     CourseResponse createCourse(String creatorId, CreateCourseRequest request);
@@ -24,4 +26,6 @@ public interface CourseService {
     CourseResponse publishCourse(String courseId, String requesterId);
 
     CourseResponse archiveCourse(String courseId, String requesterId);
+
+    List<CourseResponse> getCoursesByCreator(String creatorId);
 }

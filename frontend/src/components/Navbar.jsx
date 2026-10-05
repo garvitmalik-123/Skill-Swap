@@ -22,6 +22,7 @@ function Navbar() {
             {user ? (
                 <div className="flex items-center gap-4">
                     <Link to="/dashboard" className="text-gray-700">Dashboard</Link>
+                    <Link to="/my-courses" className="text-gray-700">My courses</Link>
                     <Link to="/profile" className="text-gray-700">Profile</Link>
                     <span className="text-gray-500">Hi, {user.name}</span>
                     <button onClick={handleLogout} className="px-4 py-1.5 rounded-lg bg-indigo-600 text-white">

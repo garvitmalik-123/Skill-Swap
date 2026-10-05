@@ -15,6 +15,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.skillswap.backend.dto.request.CourseSearchRequest;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService {
@@ -109,6 +111,13 @@ public class CourseServiceImpl implements CourseService {
         course.setStatus(Course.CourseStatus.PUBLISHED);
         Course saved = courseRepository.save(course);
         return toResponse(saved);
+    }
+
+    @Override
+    public List<CourseResponse> getCoursesByCreator(String creatorId) {
+        return courseRepository.findByCreatorId(creatorId, Pageable.unpaged())
+                .map(this::toResponse)
+                .getContent();
     }
 
     @Override
