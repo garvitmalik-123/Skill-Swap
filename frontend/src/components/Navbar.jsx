@@ -12,9 +12,12 @@ function Navbar() {
 
     return (
         <nav className="h-16 bg-white shadow flex items-center justify-between px-6">
-            <Link to="/" className="text-xl font-bold text-indigo-600">
-                🤝 SkillSwap
-            </Link>
+            <div className="flex items-center gap-6">
+                <Link to="/" className="text-xl font-bold text-indigo-600">
+                    🤝 SkillSwap
+                </Link>
+                <Link to="/courses" className="text-gray-700">Courses</Link>
+            </div>
 
             {user ? (
                 <div className="flex items-center gap-4">
